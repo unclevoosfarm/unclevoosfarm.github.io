@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { StayCards } from './components/StayCards';
 import { HarvestProducts } from './components/HarvestProducts';
+import { FarmTours } from './components/FarmTours';
 import { Testimonials } from './components/Testimonials';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -24,6 +25,9 @@ export default function App() {
 
           {/* Fresh Harvest Products */}
           <HarvestProducts />
+
+          {/* Farm Tour Experiences */}
+          <FarmTours />
 
           {/* Guest Testimonials */}
           <Testimonials />

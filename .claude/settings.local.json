@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(cd \"/Users/tnhmb/Documents/Web Service Projects/Uncle Voo Farm Landing Page\" && npm run build 2>&1)"
+    ]
+  }
+}
