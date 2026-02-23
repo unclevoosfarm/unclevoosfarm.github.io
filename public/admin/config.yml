@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: unclevoosfarm/web-page
+  repo: unclevoosfarm/unclevoosfarm.github.io
   branch: main
   base_url: https://uncle-voos-farm-cms-auth.uvf-cms.workers.dev
   auth_endpoint: /
