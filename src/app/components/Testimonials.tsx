@@ -3,8 +3,12 @@ import { motion } from 'motion/react';
 import { Star, StarHalf } from 'lucide-react';
 import testimonialsData from '@/content/testimonials.json';
 
+type Lang = 'en' | 'my' | 'zh';
+const loc = <T extends Record<Lang, string>>(field: T, lang: string): string =>
+  field[(lang as Lang)] ?? field.en;
+
 export function Testimonials() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { rating, reviewCount, testimonials } = testimonialsData;
   const featured = testimonials[0];
 
@@ -45,10 +49,10 @@ export function Testimonials() {
           {/* Right: Featured Quote */}
           <div className="flex-1">
             <p className="text-xl text-gray-200 italic leading-relaxed">
-              "{featured.text}"
+              "{loc(featured.text, language)}"
             </p>
             <p className="text-sm text-gray-400 mt-4 font-semibold">
-              - {featured.name}, {featured.role}
+              - {featured.name}, {loc(featured.role, language)}
             </p>
           </div>
         </motion.div>

@@ -1,5 +1,9 @@
 import { useLanguage } from './LanguageContext';
 import { motion } from 'motion/react';
+
+type Lang = 'en' | 'my' | 'zh';
+const loc = <T extends Record<Lang, string>>(field: T, lang: string): string =>
+  field[(lang as Lang)] ?? field.en;
 import { useEffect, useRef, useState } from 'react';
 import { Clock, ZoomIn, MessageCircle } from 'lucide-react';
 import { Lightbox } from './Lightbox';
@@ -144,7 +148,7 @@ function TourCard({
 }
 
 export function FarmTours() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
@@ -172,11 +176,11 @@ export function FarmTours() {
   }, []);
 
   const tours = toursData.tours.map(tour => ({
-    title: tour.title,
+    title: loc(tour.title, language),
     price: tour.price,
     duration: tour.duration,
-    description: tour.description,
-    features: tour.features,
+    description: loc(tour.description, language),
+    features: tour.features.map(f => loc(f, language)),
     imageUrl: tour.image,
     badge: tour.badge || undefined,
   }));

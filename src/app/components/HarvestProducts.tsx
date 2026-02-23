@@ -1,5 +1,9 @@
 import { useLanguage } from './LanguageContext';
 import { MessageCircle, ZoomIn, Filter } from 'lucide-react';
+
+type Lang = 'en' | 'my' | 'zh';
+const loc = <T extends Record<Lang, string>>(field: T, lang: string): string =>
+  field[(lang as Lang)] ?? field.en;
 import productsData from '@/content/products.json';
 import svgPaths from '../../imports/svg-3ykeeib9ga';
 import { motion, AnimatePresence } from 'motion/react';
@@ -124,7 +128,7 @@ const ProductCard = forwardRef<HTMLElement, ProductCardProps>(({ name, price, un
 ProductCard.displayName = 'ProductCard';
 
 export function HarvestProducts() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState('All');
 
@@ -132,6 +136,8 @@ export function HarvestProducts() {
 
   const products = productsData.products.map(p => ({
     ...p,
+    name: loc(p.name, language),
+    description: loc(p.description, language),
     badge: p.badge && p.badgeType ? { text: p.badge, type: p.badgeType as 'season' | 'best' } : undefined,
   }));
 

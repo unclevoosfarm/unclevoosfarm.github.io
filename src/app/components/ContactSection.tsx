@@ -5,6 +5,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
 import contactData from '@/content/contact.json';
 
+type Lang = 'en' | 'my' | 'zh';
+const loc = <T extends Record<Lang, string>>(field: T, lang: string): string =>
+  field[(lang as Lang)] ?? field.en;
+
 function MapPinIcon() {
   return (
     <svg className="h-5 w-4 shrink-0" fill="none" viewBox="0 0 16 20">
@@ -34,7 +38,7 @@ function EmailIcon() {
 }
 
 export function ContactSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -157,7 +161,7 @@ export function ContactSection() {
                 <div className="flex items-start gap-4">
                   <MapPinIcon />
                   <span className="text-white/90 text-sm whitespace-pre-line leading-relaxed">
-                    {contactData.address}
+                    {loc(contactData.address, language)}
                   </span>
                 </div>
 

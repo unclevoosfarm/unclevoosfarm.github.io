@@ -1,5 +1,9 @@
 import { useLanguage } from './LanguageContext';
 import { motion } from 'motion/react';
+
+type Lang = 'en' | 'my' | 'zh';
+const loc = <T extends Record<Lang, string>>(field: T, lang: string): string =>
+  field[(lang as Lang)] ?? field.en;
 import { useEffect, useRef, useState } from 'react';
 import stayData from '@/content/stay.json';
 import { Lightbox } from './Lightbox';
@@ -16,7 +20,7 @@ import {
 } from 'lucide-react';
 
 export function StayCards() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isInView, setIsInView] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
@@ -36,15 +40,11 @@ export function StayCards() {
     return () => { if (node) observer.unobserve(node); };
   }, []);
 
-  const amenities = [
-    { icon: BedDouble, label: t('stayAmenityRooms') },
-    { icon: Users, label: t('stayAmenityGuests') },
-    { icon: Wind, label: t('stayAmenityAircon') },
-    { icon: UtensilsCrossed, label: t('stayAmenityKitchen') },
-    { icon: Flame, label: t('stayAmenityBBQ') },
-    { icon: Droplets, label: t('stayAmenityWater') },
-    { icon: WashingMachine, label: t('stayAmenityLaundry') },
-  ];
+  const amenityIcons = [BedDouble, Users, Wind, UtensilsCrossed, Flame, Droplets, WashingMachine];
+  const amenities = stayData.amenities.map((a, i) => ({
+    icon: amenityIcons[i],
+    label: loc(a, language),
+  }));
 
   const imageUrl = stayData.image;
 
@@ -87,7 +87,7 @@ export function StayCards() {
               </div>
               <motion.img
                 src={imageUrl}
-                alt={stayData.name}
+                alt={loc(stayData.name, language)}
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5 }}
@@ -96,7 +96,7 @@ export function StayCards() {
               <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-3 shadow-lg z-20">
                 <div className="flex items-baseline gap-1">
                   <span className="text-[var(--primary)] text-2xl font-bold">{stayData.price}</span>
-                  <span className="text-gray-500 text-sm">{stayData.priceUnit}</span>
+                  <span className="text-gray-500 text-sm">{loc(stayData.priceUnit, language)}</span>
                 </div>
               </div>
             </div>
@@ -104,11 +104,11 @@ export function StayCards() {
             {/* Details Side */}
             <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
               <h3 className="text-[var(--foreground)] text-2xl lg:text-3xl font-bold mb-4">
-                {stayData.name}
+                {loc(stayData.name, language)}
               </h3>
 
               <p className="text-gray-600 leading-relaxed mb-8">
-                {stayData.description}
+                {loc(stayData.description, language)}
               </p>
 
               {/* Amenities Grid */}

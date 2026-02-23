@@ -9,6 +9,11 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import heroData from '@/content/hero.json';
+import { useLanguage } from './LanguageContext';
+
+type Lang = 'en' | 'my' | 'zh';
+const loc = <T extends Record<Lang, string>>(field: T, lang: string): string =>
+  field[(lang as Lang)] ?? field.en;
 
 /* ------------------------------------------------------------------ */
 /*  Slide data                                                         */
@@ -23,20 +28,22 @@ function SlideIcon({ name, size }: { name: BadgeIcon; size: 'sm' | 'md' }) {
   return <Compass className={cls} />;
 }
 
+interface LocalizedString { en: string; my: string; zh: string; }
+
 interface Slide {
   id: string;
-  badge: string;
+  badge: LocalizedString;
   badgeIcon: BadgeIcon;
-  headingLine1: string;
-  headingAccent: string;
-  description: string;
-  ctaLabel: string;
+  headingLine1: LocalizedString;
+  headingAccent: LocalizedString;
+  description: LocalizedString;
+  ctaLabel: LocalizedString;
   ctaHref: string;
   image: string;
   imageAlt: string;
 }
 
-const slides: Slide[] = heroData.slides as Slide[];
+const slides: Slide[] = heroData.slides as unknown as Slide[];
 
 const SLIDE_DURATION = 6000; // ms
 
@@ -45,6 +52,7 @@ const SLIDE_DURATION = 6000; // ms
 /* ------------------------------------------------------------------ */
 
 export function Hero() {
+  const { language } = useLanguage();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const progressRef = useRef(0);
@@ -167,21 +175,21 @@ export function Hero() {
               {/* Badge */}
               <span className="mb-6 inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white">
                 <SlideIcon name={slide.badgeIcon} size="sm" />
-                {slide.badge}
+                {loc(slide.badge, language)}
               </span>
 
               {/* Heading */}
               <h1 className="mb-4 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
-                {slide.headingLine1}
+                {loc(slide.headingLine1, language)}
                 <br />
                 <span className="text-[var(--primary)]">
-                  {slide.headingAccent}
+                  {loc(slide.headingAccent, language)}
                 </span>
               </h1>
 
               {/* Description */}
               <p className="mb-8 max-w-lg text-base leading-relaxed text-gray-200 md:text-lg">
-                {slide.description}
+                {loc(slide.description, language)}
               </p>
 
               {/* CTA button */}
@@ -191,7 +199,7 @@ export function Hero() {
                 whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[var(--olive-dark)] shadow-lg transition-colors hover:bg-[var(--cta)] hover:text-white"
               >
-                {slide.ctaLabel}
+                {loc(slide.ctaLabel, language)}
                 <SlideIcon name={slide.badgeIcon} size="md" />
               </motion.a>
             </motion.div>
