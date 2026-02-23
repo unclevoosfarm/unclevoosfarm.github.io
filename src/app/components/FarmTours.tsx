@@ -2,13 +2,12 @@ import { useLanguage } from './LanguageContext';
 import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { Clock, ZoomIn, MessageCircle } from 'lucide-react';
-import { SectionDivider } from './SectionDivider';
 import { Lightbox } from './Lightbox';
 
 function CheckCircle() {
   return (
-    <svg className="h-[15px] w-[15px] shrink-0" fill="none" viewBox="0 0 15 15">
-      <path d="M7.5 0C3.35786 0 0 3.35786 0 7.5C0 11.6421 3.35786 15 7.5 15C11.6421 15 15 11.6421 15 7.5C15 3.35786 11.6421 0 7.5 0ZM11.0355 5.53553L7.03553 9.53553C6.74264 9.82843 6.25736 9.82843 5.96447 9.53553L3.96447 7.53553C3.67157 7.24264 3.67157 6.75736 3.96447 6.46447C4.25736 6.17157 4.74264 6.17157 5.03553 6.46447L6.5 7.92893L9.96447 4.46447C10.2574 4.17157 10.7426 4.17157 11.0355 4.46447C11.3284 4.75736 11.3284 5.24264 11.0355 5.53553Z" fill="#22C55E" />
+    <svg className="h-[15px] w-[15px] shrink-0 text-[var(--primary)]" fill="none" viewBox="0 0 15 15">
+      <path d="M7.5 0C3.35786 0 0 3.35786 0 7.5C0 11.6421 3.35786 15 7.5 15C11.6421 15 15 11.6421 15 7.5C15 3.35786 11.6421 0 7.5 0ZM11.0355 5.53553L7.03553 9.53553C6.74264 9.82843 6.25736 9.82843 5.96447 9.53553L3.96447 7.53553C3.67157 7.24264 3.67157 6.75736 3.96447 6.46447C4.25736 6.17157 4.74264 6.17157 5.03553 6.46447L6.5 7.92893L9.96447 4.46447C10.2574 4.17157 10.7426 4.17157 11.0355 4.46447C11.3284 4.75736 11.3284 5.24264 11.0355 5.53553Z" fill="currentColor" />
     </svg>
   );
 }
@@ -92,25 +91,25 @@ function TourCard({
           transition={{ duration: 0.5 }}
         />
         {badge && (
-          <div className="absolute top-[1px] right-[1px] bg-[#3B82F6] rounded-bl-[32px] rounded-tr-[32px] px-4 py-2 z-20">
-            <span className="font-['Fredoka'] text-white text-sm">{badge}</span>
+          <div className="absolute top-[1px] right-[1px] bg-[var(--primary)] rounded-bl-[32px] rounded-tr-[32px] px-4 py-2 z-20">
+            <span className="text-white text-sm">{badge}</span>
           </div>
         )}
       </div>
 
       {/* Content */}
       <div className="p-8 flex flex-col">
-        <h3 className="font-['Fredoka'] text-[#111827] text-2xl mb-2">{title}</h3>
+        <h3 className="text-[var(--foreground)] text-2xl mb-2">{title}</h3>
 
         <div className="flex items-center gap-3 mb-4">
-          <span className="font-['Quicksand'] text-[#F97316] text-3xl font-semibold">{price}</span>
+          <span className="text-[var(--primary)] text-3xl font-semibold">{price}</span>
           <div className="flex items-center gap-1 bg-gray-100 rounded-full px-3 py-1">
             <Clock className="w-3.5 h-3.5 text-gray-500" />
-            <span className="font-['Quicksand'] text-gray-500 text-sm">{duration}</span>
+            <span className="text-gray-500 text-sm">{duration}</span>
           </div>
         </div>
 
-        <p className="font-['Quicksand'] text-gray-700 leading-relaxed mb-6 flex-1">
+        <p className="text-gray-700 leading-relaxed mb-6 flex-1">
           {description}
         </p>
 
@@ -119,7 +118,7 @@ function TourCard({
           {features.map((feat, i) => (
             <div key={i} className="flex items-center gap-2">
               <CheckCircle />
-              <span className="font-['Quicksand'] text-gray-700 text-sm">{feat}</span>
+              <span className="text-gray-700 text-sm">{feat}</span>
             </div>
           ))}
         </div>
@@ -133,10 +132,10 @@ function TourCard({
           rel="noopener noreferrer"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full flex items-center justify-center gap-2 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-3xl transition-all shadow-[0px_4px_6px_-1px_rgba(37,211,102,0.3)] hover:shadow-[0px_10px_15px_-3px_rgba(37,211,102,0.4)] hover:-translate-y-0.5"
+          className="w-full flex items-center justify-center gap-2 py-3 bg-[var(--cta)] hover:bg-[var(--cta-dark)] text-white rounded-3xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
         >
           <MessageCircle className="w-5 h-5" />
-          <span className="font-['Quicksand'] font-semibold">{bookLabel}</span>
+          <span className="font-semibold">{bookLabel}</span>
         </motion.a>
       </div>
     </motion.article>
@@ -201,8 +200,7 @@ export function FarmTours() {
   ];
 
   return (
-    <section ref={sectionRef} id="tours" className="py-20 lg:py-24 bg-[#FFFCF5] relative">
-      <SectionDivider fill="#FFF7ED" position="top" className="-mt-1" />
+    <section ref={sectionRef} id="tours" aria-label="Farm Tour Experiences – Guided Agricultural Tours at Uncle Voo's Farm Malaysia" className="py-20 lg:py-24 bg-[var(--background)] relative">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -211,13 +209,13 @@ export function FarmTours() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 lg:mb-16"
         >
-          <span className="font-['Quicksand'] text-[#F97316] text-sm font-semibold tracking-wider uppercase block mb-2">
+          <span className="text-[var(--primary)] text-sm font-semibold tracking-wider uppercase block mb-2">
             {t('toursTag')}
           </span>
-          <h2 className="font-['Fredoka'] text-[#111827] text-3xl md:text-4xl mb-4">
+          <h2 className="text-[var(--foreground)] text-3xl md:text-4xl mb-4">
             {t('toursTitle')}
           </h2>
-          <p className="font-['Quicksand'] text-gray-600 max-w-[672px] mx-auto leading-relaxed">
+          <p className="text-gray-600 max-w-[672px] mx-auto leading-relaxed">
             {t('toursSubtitle')}
           </p>
         </motion.div>

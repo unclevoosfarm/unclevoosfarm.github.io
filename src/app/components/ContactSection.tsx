@@ -2,7 +2,6 @@ import { useLanguage } from './LanguageContext';
 import svgPaths from '../../imports/svg-3ykeeib9ga';
 import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
-import { SectionDivider } from './SectionDivider';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
 
 function MapPinIcon() {
@@ -60,14 +59,13 @@ export function ContactSection() {
   }, []);
 
   const socialLinks = [
-    { icon: Facebook, href: '#' },
-    { icon: Instagram, href: '#' },
-    { icon: Twitter, href: '#' },
+    { icon: Facebook, href: '#', label: 'Uncle Voo\'s Farm on Facebook' },
+    { icon: Instagram, href: '#', label: 'Uncle Voo\'s Farm on Instagram' },
+    { icon: Twitter, href: '#', label: 'Uncle Voo\'s Farm on Twitter' },
   ];
 
   return (
-    <section ref={sectionRef} id="contact" className="py-16 lg:py-20 bg-[rgba(59,130,246,0.05)] relative">
-      <SectionDivider fill="#FFFCF5" position="top" className="-mt-1" />
+    <section ref={sectionRef} id="contact" aria-label="Contact Uncle Voo's Farm – Book a Stay or Ask Us Anything" className="py-16 lg:py-20 bg-[var(--background)] relative">
       <div className="max-w-[830px] mx-auto px-6 lg:px-0 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -77,42 +75,47 @@ export function ContactSection() {
         >
           {/* Form Side */}
           <div className="flex-1 p-8 md:p-10">
-            <h2 className="font-['Fredoka'] text-[#111827] text-3xl mb-6">{t('contactTitle')}</h2>
+            <h2 id="contact-heading" className="text-[var(--foreground)] text-3xl mb-6">{t('contactTitle')}</h2>
 
             <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
               {/* Name */}
               <div className="flex flex-col gap-1">
-                <label className="font-['Quicksand'] text-gray-700 text-sm font-medium">
+                <label htmlFor="contact-name" className="text-gray-700 text-sm font-medium">
                   {t('contactName')}
                 </label>
                 <input
+                  id="contact-name"
                   type="text"
                   placeholder={t('contactNamePlaceholder')}
-                  className="bg-white border border-gray-300 rounded-3xl px-5 py-3.5 font-['Quicksand'] text-gray-900 placeholder:text-gray-400 outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] transition-colors"
+                  autoComplete="name"
+                  className="bg-white border border-gray-300 rounded-3xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] transition-colors"
                 />
               </div>
 
               {/* Email */}
               <div className="flex flex-col gap-1">
-                <label className="font-['Quicksand'] text-gray-700 text-sm font-medium">
+                <label htmlFor="contact-email" className="text-gray-700 text-sm font-medium">
                   {t('contactEmail')}
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   placeholder={t('contactEmailPlaceholder')}
-                  className="bg-white border border-gray-300 rounded-3xl px-5 py-3.5 font-['Quicksand'] text-gray-900 placeholder:text-gray-400 outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] transition-colors"
+                  autoComplete="email"
+                  className="bg-white border border-gray-300 rounded-3xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] transition-colors"
                 />
               </div>
 
               {/* Message */}
               <div className="flex flex-col gap-1">
-                <label className="font-['Quicksand'] text-gray-700 text-sm font-medium">
+                <label htmlFor="contact-message" className="text-gray-700 text-sm font-medium">
                   {t('contactMessage')}
                 </label>
                 <textarea
+                  id="contact-message"
                   placeholder={t('contactMessagePlaceholder')}
                   rows={4}
-                  className="bg-white border border-gray-300 rounded-3xl px-5 py-3.5 font-['Quicksand'] text-gray-900 placeholder:text-gray-400 outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] transition-colors resize-none"
+                  className="bg-white border border-gray-300 rounded-3xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] transition-colors resize-none"
                 />
               </div>
 
@@ -121,64 +124,67 @@ export function ContactSection() {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-[#F97316] text-white py-4 rounded-3xl font-['Quicksand'] font-semibold shadow-[0px_10px_15px_-3px_#fed7aa,0px_4px_6px_-4px_#fed7aa] hover:shadow-[0px_15px_20px_-3px_#fed7aa,0px_6px_8px_-4px_#fed7aa] transition-shadow"
+                className="w-full bg-[var(--cta)] hover:bg-[var(--cta-dark)] text-white py-4 rounded-3xl font-semibold shadow-lg hover:shadow-xl transition-all"
               >
                 {t('contactSend')}
               </motion.button>
             </form>
           </div>
 
-          {/* Blue Info Side */}
-          <div className="bg-[#3B82F6] p-8 md:p-10 md:w-[332px] relative overflow-hidden flex flex-col justify-between">
+          {/* Dark Olive Info Side */}
+          <div className="bg-[var(--olive-dark)] p-8 md:p-10 md:w-[332px] relative overflow-hidden flex flex-col justify-between">
             {/* Decorative blurs */}
-            <motion.div 
+            <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-10 -right-10 w-40 h-40 bg-white rounded-full blur-[20px]" 
+              className="absolute -bottom-10 -right-10 w-40 h-40 bg-white rounded-full blur-[20px]"
             />
-            <motion.div 
+            <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -left-10 top-10 w-20 h-20 bg-white rounded-full blur-[12px]" 
+              className="absolute -left-10 top-10 w-20 h-20 bg-white rounded-full blur-[12px]"
             />
 
             <div className="relative z-10">
-              <h3 className="font-['Fredoka'] text-white text-2xl mb-4">{t('contactVisitTitle')}</h3>
-              <p className="font-['Quicksand'] text-white/90 leading-relaxed mb-8">
+              <h3 className="text-white text-2xl mb-4">{t('contactVisitTitle')}</h3>
+              <p className="text-white/90 leading-relaxed mb-8">
                 {t('contactVisitDesc')}
               </p>
 
               {/* Contact Details */}
-              <div className="flex flex-col gap-6">
+              <address className="not-italic flex flex-col gap-6">
                 <div className="flex items-start gap-4">
                   <MapPinIcon />
-                  <span className="font-['Quicksand'] text-white/90 text-sm whitespace-pre-line leading-relaxed">
+                  <span className="text-white/90 text-sm whitespace-pre-line leading-relaxed">
                     {t('contactAddress')}
                   </span>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <PhoneIcon />
-                  <span className="font-['Quicksand'] text-white/90 text-sm">
+                  <a href={`tel:${t('contactPhone')}`} className="text-white/90 text-sm hover:text-white transition-colors">
                     {t('contactPhone')}
-                  </span>
+                  </a>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <EmailIcon />
-                  <span className="font-['Quicksand'] text-white/90 text-sm">
+                  <a href={`mailto:${t('contactEmailAddr')}`} className="text-white/90 text-sm hover:text-white transition-colors">
                     {t('contactEmailAddr')}
-                  </span>
+                  </a>
                 </div>
-              </div>
+              </address>
             </div>
 
             {/* Social Links */}
-            <div className="flex gap-4 mt-12 relative z-10">
+            <div className="flex gap-4 mt-12 relative z-10" aria-label="Follow us on social media">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
                   href={social.href}
+                  aria-label={social.label}
+                  rel="noopener noreferrer"
+                  target="_blank"
                   style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
                   whileHover={{ scale: 1.15, rotate: 5, backgroundColor: "rgba(255, 255, 255, 0.3)" }}
                   whileTap={{ scale: 0.9 }}

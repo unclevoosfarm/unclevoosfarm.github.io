@@ -1,6 +1,6 @@
 import { useLanguage } from './LanguageContext';
 import svgPaths from '../../imports/svg-3ykeeib9ga';
-import uncleVooLogo from 'figma:asset/59875ed302d3978fdf3075319f5aa3eafc42d49b.png';
+import logoImg from '@/assets/uncle-voo-logo.png';
 
 function HeartIcon() {
   return (
@@ -14,34 +14,39 @@ export function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-[#FFFCF5] border-t border-gray-200 py-16">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-8 flex flex-col items-center">
+    <footer className="bg-white border-t border-gray-200 py-16" aria-label="Site footer">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-8 flex flex-col items-center gap-6">
         {/* Logo */}
-        <div className="mb-4">
+        <div>
           <img
-            src={uncleVooLogo}
-            alt="Uncle Voo's Farm"
-            className="w-24 h-24 rounded-full object-cover border-2 border-[#F97316]/20"
-            loading="lazy"
+            src={logoImg}
+            alt="Uncle Voo's Farm – Organic Farm Stay Malaysia"
+            className="h-20 w-auto object-contain"
           />
         </div>
 
-        {/* Brand name */}
-        <h3 className="font-['Fredoka'] text-2xl tracking-wider mb-8">
-          <span className="text-[#F97316]">Uncle Voo's</span>{' '}
-          <span className="text-[#3B82F6]">Farm</span>
-        </h3>
+        {/* Quick nav links for crawlers */}
+        <nav aria-label="Footer navigation">
+          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
+            <li><a href="#home" className="hover:text-[var(--primary)] transition-colors">Home</a></li>
+            <li><a href="#stay" className="hover:text-[var(--primary)] transition-colors">Farm Stay</a></li>
+            <li><a href="#shop" className="hover:text-[var(--primary)] transition-colors">Harvest Shop</a></li>
+            <li><a href="#tours" className="hover:text-[var(--primary)] transition-colors">Farm Tours</a></li>
+            <li><a href="#reviews" className="hover:text-[var(--primary)] transition-colors">Reviews</a></li>
+            <li><a href="#contact" className="hover:text-[var(--primary)] transition-colors">Contact</a></li>
+          </ul>
+        </nav>
 
         {/* Copyright */}
-        <p className="font-['Fredoka'] text-gray-500 text-center mb-4">
-          {t('footerCopyright')}
+        <p className="text-gray-500 text-center text-sm">
+          &copy; <time dateTime="2026">2026</time> Uncle Voo's Farm. All rights reserved.
         </p>
 
         {/* Made with love */}
         <div className="flex items-center gap-1 justify-center">
-          <span className="font-['Quicksand'] text-gray-400 text-sm">{t('footerMadeWith')}</span>
+          <span className="text-gray-400 text-sm">{t('footerMadeWith')}</span>
           <HeartIcon />
-          <span className="font-['Quicksand'] text-gray-400 text-sm">{t('footerAnd')}</span>
+          <span className="text-gray-400 text-sm">{t('footerAnd')}</span>
         </div>
       </div>
     </footer>

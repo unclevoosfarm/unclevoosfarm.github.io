@@ -1,187 +1,289 @@
-import { useLanguage } from './LanguageContext';
-import imgHeroFarm from 'figma:asset/0a28f452b2853de1494470dfce4fa4d85bde710f.png';
-import svgPaths from '../../imports/svg-3ykeeib9ga';
-import { motion, useScroll, useTransform } from 'motion/react';
-import { WeatherWidget } from './WeatherWidget';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import {
+  Home,
+  Store,
+  Compass,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+} from 'lucide-react';
 
-function LeafIcon() {
-  return (
-    <svg className="h-3 w-3" fill="none" viewBox="0 0 11.3303 11.3282">
-      <path d={svgPaths.p1e0bf800} fill="white" />
-    </svg>
-  );
+/* ------------------------------------------------------------------ */
+/*  Slide data                                                         */
+/* ------------------------------------------------------------------ */
+
+interface Slide {
+  badge: string;
+  badgeIcon: React.ReactNode;
+  headingLine1: string;
+  headingAccent: string;
+  description: string;
+  ctaLabel: string;
+  ctaIcon: React.ReactNode;
+  ctaHref: string;
+  image: string;
+  imageAlt: string;
 }
 
-function HomeIcon() {
-  return (
-    <svg className="h-5 w-5" fill="none" viewBox="0 0 22 20">
-      <path d={svgPaths.p22ebd2c0} fill="white" />
-    </svg>
-  );
-}
+const slides: Slide[] = [
+  {
+    badge: 'Accommodation',
+    badgeIcon: <Home className="h-3.5 w-3.5" />,
+    headingLine1: 'Peaceful Homestay',
+    headingAccent: 'Experience',
+    description:
+      'Escape to our cozy cabins nestled among lush greenery. Wake up to birdsong, sip fresh coffee on the porch, and let the tranquility of the farm restore your spirit.',
+    ctaLabel: 'Rest & Recharge',
+    ctaIcon: <ArrowRight className="h-4 w-4" />,
+    ctaHref: '#stay',
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuDIOj-Qstr6LNcXG4r8MsyE6jZyxBpmE7pHJJ-08BQg7oP7chvO9Z2CYdlm5pX709vAcxJTMMSfsKFjSWtq0q1fe2p5dfnnn4yABebjp4QWcdqLH3bZnHMrJ1pxrAfsX2gqK3WfxrQ30hE_4uJvz_Fq3Cnb30_KBa_AgSTQ_W7yISvCamExHejK7cZeouTBDL2829smMO5Dv9Unlhbl13AAOgCYEIeyRJRqtvJAwFrGj0IMOY59NvnsdTvvQVBsFKEenh1JDSKs_Ixo',
+    imageAlt: 'Cozy farmhouse cabin surrounded by lush tropical greenery at Uncle Voo\'s Farm',
+  },
+  {
+    badge: 'Fresh Produce',
+    badgeIcon: <Store className="h-3.5 w-3.5" />,
+    headingLine1: 'Organic Farm',
+    headingAccent: 'Shop',
+    description:
+      'Browse our farm shop stocked with fresh seasonal produce, homemade preserves, and artisan goods. All grown and crafted right here on Uncle Voo\'s land.',
+    ctaLabel: 'Browse Our Harvest',
+    ctaIcon: <Store className="h-4 w-4" />,
+    ctaHref: '#shop',
+    image:
+      'https://images.unsplash.com/photo-1488459716781-31db52582fe9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1280',
+    imageAlt: 'Fresh organic produce and seasonal harvest from Uncle Voo\'s Farm shop',
+  },
+  {
+    badge: 'Adventures',
+    badgeIcon: <Compass className="h-3.5 w-3.5" />,
+    headingLine1: 'Interactive Farm',
+    headingAccent: 'Tours',
+    description:
+      'Join an educational adventure through our working farm. Feed the animals, pick your own fruit, and discover the joy of sustainable farming. Perfect for families and curious minds.',
+    ctaLabel: 'Experience Farm Life',
+    ctaIcon: <Compass className="h-4 w-4" />,
+    ctaHref: '#tours',
+    image:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuAJl2xZx-XNH-9XqureycfbHsnjaC0z30K72rdfPmpceXNWzmUFBhskAL1nsomF_mA9hCfB6jIRvQ3Tcd3egOG5gJPQ_XmRyy7e3b_EyuJ08AaliGAyA4kb3XVsfyqa7px8X_401R-Qm8tlefjHY_1rIVlDLNcoBeRPWXTGCQsy0eqGB3-LSojmtWSJ-pA3rJhwPb381rmVYyj5evjDrL-Et-kffB_OUI2c8xUvWHyeicAaw_EpcDRY_22Alf_l5pBjhaCngMg04uQu',
+    imageAlt: 'Family enjoying a guided farm tour at Uncle Voo\'s organic farm in Malaysia',
+  },
+];
 
-function CartIcon() {
-  return (
-    <svg className="h-[19px] w-[22px]" fill="none" viewBox="0 0 21.9758 19">
-      <path d={svgPaths.p345cae00} fill="white" />
-    </svg>
-  );
-}
+const SLIDE_DURATION = 6000; // ms
 
-function CheckIcon() {
-  return (
-    <svg className="h-5 w-5" fill="none" viewBox="0 0 20 20">
-      <path d={svgPaths.p1caa9380} fill="#22C55E" />
-    </svg>
-  );
-}
+/* ------------------------------------------------------------------ */
+/*  Hero component                                                     */
+/* ------------------------------------------------------------------ */
 
 export function Hero() {
-  const { t } = useLanguage();
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 80]);
-  const badgeY = useTransform(scrollY, [0, 500], [0, -40]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const progressRef = useRef(0);
+  const rafRef = useRef<number>(0);
+  const lastTickRef = useRef<number>(0);
+  const [progressPct, setProgressPct] = useState(0);
+
+  const totalSlides = slides.length;
+
+  /* ---------- navigation helpers ---------- */
+
+  const goTo = useCallback(
+    (index: number) => {
+      setCurrentSlide(((index % totalSlides) + totalSlides) % totalSlides);
+      progressRef.current = 0;
+      setProgressPct(0);
+      lastTickRef.current = 0;
+    },
+    [totalSlides],
+  );
+
+  const next = useCallback(() => goTo(currentSlide + 1), [currentSlide, goTo]);
+  const prev = useCallback(() => goTo(currentSlide - 1), [currentSlide, goTo]);
+
+  /* ---------- auto-rotation with rAF progress ---------- */
+
+  useEffect(() => {
+    if (isPaused) {
+      lastTickRef.current = 0;
+      return;
+    }
+
+    const tick = (timestamp: number) => {
+      if (lastTickRef.current === 0) {
+        lastTickRef.current = timestamp;
+      }
+      const delta = timestamp - lastTickRef.current;
+      lastTickRef.current = timestamp;
+
+      progressRef.current += delta;
+      const pct = Math.min((progressRef.current / SLIDE_DURATION) * 100, 100);
+      setProgressPct(pct);
+
+      if (progressRef.current >= SLIDE_DURATION) {
+        setCurrentSlide((prev) => (prev + 1) % totalSlides);
+        progressRef.current = 0;
+        setProgressPct(0);
+        lastTickRef.current = 0;
+      }
+
+      rafRef.current = requestAnimationFrame(tick);
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [isPaused, totalSlides, currentSlide]);
+
+  /* ---------- keyboard navigation ---------- */
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [next, prev]);
+
+  /* ---------- derived ---------- */
+
+  const slide = slides[currentSlide];
+  const slideNumber = String(currentSlide + 1).padStart(2, '0');
+  const totalNumber = String(totalSlides).padStart(2, '0');
+
+  /* ---------------------------------------------------------------- */
+  /*  Render                                                           */
+  /* ---------------------------------------------------------------- */
 
   return (
     <section
       id="home"
-      className="relative min-h-[600px] md:min-h-[650px] lg:min-h-[700px] w-full overflow-hidden flex items-center justify-center"
+      aria-label="Uncle Voo's Farm – Organic Farm Stay, Harvest Shop and Farm Tours in Malaysia"
+      className="relative h-[600px] lg:h-[700px] w-full overflow-hidden"
       role="banner"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Hero Image */}
-      <motion.div style={{ y }} className="absolute w-full h-[130%] -top-[15%] left-0">
-        <img
-          src={imgHeroFarm}
-          alt="Uncle Voo's Farm landscape"
-          className="w-full h-full object-cover"
-          loading="eager"
-        />
-      </motion.div>
-
-      {/* Dynamic Content - Weather */}
-      <WeatherWidget />
-
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
-
-      {/* Curved Wave at Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 overflow-hidden z-20">
-        <svg
-          className="absolute bottom-0 w-full h-24"
-          viewBox="0 0 1440 120"
-          preserveAspectRatio="none"
-          xmlns="http://www.w3.org/2000/svg"
+      {/* ---- Background images ---- */}
+      {slides.map((s, i) => (
+        <div
+          key={i}
+          className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+          style={{ opacity: i === currentSlide ? 1 : 0 }}
+          aria-hidden={i !== currentSlide}
         >
-          <path
-            d="M0,64 C240,96 480,112 720,96 C960,80 1200,48 1440,64 L1440,120 L0,120 Z"
-            fill="#FFFCF5"
+          <img
+            src={s.image}
+            alt={s.imageAlt}
+            className="h-full w-full object-cover"
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchPriority={i === 0 ? 'high' : 'low'}
           />
-        </svg>
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent" />
+        </div>
+      ))}
+
+      {/* ---- Slide content ---- */}
+      <div className="relative z-10 flex h-full items-center">
+        <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="max-w-2xl"
+            >
+              {/* Badge */}
+              <span className="mb-6 inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white">
+                {slide.badgeIcon}
+                {slide.badge}
+              </span>
+
+              {/* Heading */}
+              <h1 className="mb-4 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
+                {slide.headingLine1}
+                <br />
+                <span className="text-[var(--primary)]">
+                  {slide.headingAccent}
+                </span>
+              </h1>
+
+              {/* Description */}
+              <p className="mb-8 max-w-lg text-base leading-relaxed text-gray-200 md:text-lg">
+                {slide.description}
+              </p>
+
+              {/* CTA button */}
+              <motion.a
+                href={slide.ctaHref}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[var(--olive-dark)] shadow-lg transition-colors hover:bg-[var(--cta)] hover:text-white"
+              >
+                {slide.ctaLabel}
+                {slide.ctaIcon}
+              </motion.a>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
 
-      {/* Content - Centered */}
-      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-[896px] mx-auto py-16">
-        {/* Badge */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          style={{ y: badgeY }}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 backdrop-blur-sm bg-white/20 border border-white/30 rounded-full px-5 py-2.5 mb-8 hover:bg-white/30 transition-colors cursor-default"
-        >
-          <LeafIcon />
-          <span className="font-['Quicksand'] text-white text-sm">
-            {t('heroBadge')}
-          </span>
-        </motion.div>
+      {/* ---- Progress bar ---- */}
+      <div className="absolute bottom-0 left-0 z-20 h-[3px] w-full bg-white/10">
+        <div
+          className="h-full bg-[var(--primary)] transition-[width] duration-100 ease-linear"
+          style={{ width: `${progressPct}%` }}
+        />
+      </div>
 
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-['Fredoka'] text-white mb-6"
-        >
-          <span className="block text-4xl md:text-5xl lg:text-[72px] lg:leading-[72px]">
-            {t('heroTitle1')}
-          </span>
-          <span className="relative inline-block text-4xl md:text-5xl lg:text-[72px] lg:leading-[72px] text-[#F97316]">
-            {t('heroTitle2')}
-            {/* Blue underline */}
-            <svg
-              className="absolute -bottom-1 left-0 w-full h-3"
-              fill="none"
-              viewBox="0 0 331.78 12"
-              preserveAspectRatio="none"
+      {/* ---- Bottom controls ---- */}
+      <div className="absolute bottom-24 left-0 right-0 z-20">
+        <div className="mx-auto flex w-full max-w-7xl items-end justify-between px-6 lg:px-12">
+          {/* Left: dots + counter */}
+          <div className="flex items-center gap-4">
+            {/* Dots */}
+            <div className="flex items-center gap-2">
+              {slides.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => goTo(i)}
+                  aria-label={`Go to slide ${i + 1}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === currentSlide
+                      ? 'w-8 bg-[var(--primary)]'
+                      : 'w-2 bg-white/40 hover:bg-white/60'
+                    }`}
+                />
+              ))}
+            </div>
+
+            {/* Counter */}
+            <span className="font-mono text-sm tracking-wider text-white/70">
+              {slideNumber} / {totalNumber}
+            </span>
+          </div>
+
+          {/* Right: prev / next arrows (desktop only) */}
+          <div className="hidden items-center gap-2 md:flex">
+            <button
+              onClick={prev}
+              aria-label="Previous slide"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
             >
-              <path
-                d={svgPaths.p10074760}
-                stroke="#3B82F6"
-                strokeWidth="4"
-              />
-            </svg>
-          </span>
-        </motion.h1>
-
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="font-['Quicksand'] text-gray-200 text-lg md:text-xl lg:text-2xl max-w-[672px] mb-8 leading-relaxed"
-        >
-          {t('heroDesc1')}
-          <br />
-          {t('heroDesc2')}
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center gap-4 mb-8"
-        >
-          <motion.a
-            href="#stay"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 bg-[#F97316] text-white px-8 py-4 rounded-full font-['Fredoka'] shadow-[0px_10px_15px_-3px_rgba(249,115,22,0.3)] hover:shadow-[0px_20px_25px_-5px_rgba(249,115,22,0.4)] transition-shadow"
-          >
-            <HomeIcon />
-            <span>{t('heroBookStay')}</span>
-          </motion.a>
-          <motion.a
-            href="#shop"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 backdrop-blur-md bg-white/10 border-2 border-white/30 text-white px-8 py-4 rounded-full font-['Fredoka'] hover:bg-white/20 transition-colors"
-          >
-            <CartIcon />
-            <span>{t('heroViewHarvest')}</span>
-          </motion.a>
-        </motion.div>
-
-        {/* Feature badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex items-center gap-8"
-        >
-          <div className="flex items-center gap-2">
-            <CheckIcon />
-            <span className="font-['Quicksand'] text-gray-300 text-sm md:text-base">
-              {t('heroPetFriendly')}
-            </span>
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={next}
+              aria-label="Next slide"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
           </div>
-          <div className="flex items-center gap-2">
-            <CheckIcon />
-            <span className="font-['Quicksand'] text-gray-300 text-sm md:text-base">
-              {t('heroFreshBreakfast')}
-            </span>
-          </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

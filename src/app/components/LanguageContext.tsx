@@ -23,31 +23,21 @@ const translations = {
     heroPetFriendly: 'Pet Friendly',
     heroFreshBreakfast: 'Fresh Breakfast',
     // Stay section
+    stayTag: 'Farm Homestay',
     stayTitle: 'Stay at the Farm',
-    staySubtitle: 'Experience rural living with modern comforts. Wake up to the sound of roosters and the smell of freshly brewed coffee.',
+    staySubtitle: 'Wake up to birdsong, cook breakfast with farm-fresh eggs, and let the kids explore the countryside. Your whole family under one roof.',
     stayPerNight: '/ night',
-    stayCheckAvailability: 'Check Availability',
-    stayGuests: 'Guests',
-    stayMostPopular: 'Most Popular',
-    // Stay cards
-    stay1Title: 'Cozy Cabin',
-    stay1Price: 'RM 450',
-    stay1Desc: 'A rustic wooden cabin perfect for couples. Includes a private porch overlooking the pineapple fields and a warm fireplace.',
-    stay1Feat1: '2 Guests',
-    stay1Feat2: 'Queen Bed',
-    stay1Feat3: 'Breakfast Included',
-    stay2Title: 'Family Farmhouse',
-    stay2Price: 'RM 750',
-    stay2Desc: 'Spacious farmhouse with a full kitchen, living area, and garden access. Perfect for families wanting the complete farm experience.',
-    stay2Feat1: '6 Guests',
-    stay2Feat2: '3 Bedrooms',
-    stay2Feat3: 'Full Kitchen',
-    stay3Title: 'Camping Green View',
-    stay3Price: 'RM 180',
-    stay3Desc: 'Sleep under the stars with our premium glamping setup. Includes comfortable bedding and a campfire spot.',
-    stay3Feat1: '4 Guests',
-    stay3Feat2: 'Tent Provided',
-    stay3Feat3: 'Campfire Access',
+    stayCheckAvailability: 'Book via WhatsApp',
+    stayName: "Uncle Voo's Farmhouse",
+    stayPrice: 'RM 600',
+    stayDesc: 'Your private countryside retreat with everything you need for a memorable getaway. Four spacious queen bedrooms, a fully equipped kitchen, and all the comforts of home, set against the peaceful backdrop of a working farm. Fire up the BBQ, gather your favourite people, and make memories that last.',
+    stayAmenityRooms: '4 Queen Rooms',
+    stayAmenityGuests: 'Up to 8 Guests',
+    stayAmenityAircon: 'Air Conditioning',
+    stayAmenityKitchen: 'Full Kitchen',
+    stayAmenityBBQ: 'BBQ Stove',
+    stayAmenityWater: 'Water Heater',
+    stayAmenityLaundry: 'Laundry',
     // Harvest section
     harvestTag: 'Straight from the soil',
     harvestTitle: 'Fresh Harvest',
@@ -150,31 +140,21 @@ const translations = {
     heroPetFriendly: 'Mesra Haiwan',
     heroFreshBreakfast: 'Sarapan Segar',
     // Stay section
+    stayTag: 'Penginapan Ladang',
     stayTitle: 'Penginapan di Ladang',
-    staySubtitle: 'Rasai kehidupan luar bandar dengan keselesaan moden. Bangun dengan bunyi ayam berkokok dan bau kopi segar.',
+    staySubtitle: 'Bangun dengan nyanyian burung, masak sarapan dengan telur ladang segar, dan biar anak-anak meneroka luar bandar. Sekeluarga di bawah satu bumbung.',
     stayPerNight: '/ malam',
-    stayCheckAvailability: 'Semak Ketersediaan',
-    stayGuests: 'Tetamu',
-    stayMostPopular: 'Paling Popular',
-    // Stay cards
-    stay1Title: 'Kabin Selesa',
-    stay1Price: 'RM 450',
-    stay1Desc: 'Kabin kayu rustik sesuai untuk pasangan. Termasuk anjung peribadi menghadap ladang nanas dan perapian hangat.',
-    stay1Feat1: '2 Tetamu',
-    stay1Feat2: 'Katil Queen',
-    stay1Feat3: 'Sarapan Termasuk',
-    stay2Title: 'Rumah Ladang Keluarga',
-    stay2Price: 'RM 750',
-    stay2Desc: 'Rumah ladang luas dengan dapur penuh, ruang tamu, dan akses taman. Sesuai untuk keluarga.',
-    stay2Feat1: '6 Tetamu',
-    stay2Feat2: '3 Bilik Tidur',
-    stay2Feat3: 'Dapur Penuh',
-    stay3Title: 'Perkhemahan Hijau',
-    stay3Price: 'RM 180',
-    stay3Desc: 'Tidur di bawah bintang dengan persediaan glamping premium kami. Termasuk peralatan tidur selesa.',
-    stay3Feat1: '4 Tetamu',
-    stay3Feat2: 'Khemah Disediakan',
-    stay3Feat3: 'Akses Unggun Api',
+    stayCheckAvailability: 'Tempah melalui WhatsApp',
+    stayName: 'Rumah Ladang Uncle Voo',
+    stayPrice: 'RM 600',
+    stayDesc: 'Tempat percutian peribadi anda di luar bandar dengan segala yang diperlukan untuk percutian yang tidak dapat dilupakan. Empat bilik queen yang luas, dapur lengkap, dan semua keselesaan rumah dengan pemandangan ladang yang tenang. Hidupkan BBQ, kumpulkan orang tersayang, dan cipta kenangan indah.',
+    stayAmenityRooms: '4 Bilik Queen',
+    stayAmenityGuests: 'Sehingga 8 Tetamu',
+    stayAmenityAircon: 'Penghawa Dingin',
+    stayAmenityKitchen: 'Dapur Lengkap',
+    stayAmenityBBQ: 'Dapur BBQ',
+    stayAmenityWater: 'Pemanas Air',
+    stayAmenityLaundry: 'Dobi',
     // Harvest section
     harvestTag: 'Terus dari tanah',
     harvestTitle: 'Tuaian Segar',
@@ -253,7 +233,7 @@ const translations = {
     contactPhone: '+60 12-345 6789',
     contactEmailAddr: 'hello@unclevoofarm.com',
     // Footer
-    footerCopyright: '\u00a9 2026 Uncle Voo Farm. Hak cipta terpelihara.',
+    footerCopyright: '\u00a9 2026 Uncle Voo\'s Farm. Hak cipta terpelihara.',
     footerMadeWith: 'Dibuat dengan',
     footerAnd: 'dan kompos organik.',
     // Language
@@ -277,31 +257,21 @@ const translations = {
     heroPetFriendly: '\u5ba0\u7269\u53cb\u597d',
     heroFreshBreakfast: '\u65b0\u9c9c\u65e9\u9910',
     // Stay section
+    stayTag: '\u519c\u573a\u6c11\u5bbf',
     stayTitle: '\u4f4f\u5728\u519c\u573a',
-    staySubtitle: '\u4f53\u9a8c\u4e61\u6751\u751f\u6d3b\u4e0e\u73b0\u4ee3\u8212\u9002\u3002\u4f34\u7740\u516c\u9e21\u557c\u9e23\u548c\u73b0\u78e8\u5496\u5561\u7684\u9999\u5473\u9192\u6765\u3002',
+    staySubtitle: '\u4f34\u7740\u9e1f\u9e23\u9192\u6765\uff0c\u7528\u519c\u573a\u9c9c\u86cb\u505a\u65e9\u9910\uff0c\u8ba9\u5b69\u5b50\u4eec\u81ea\u7531\u63a2\u7d22\u4e61\u6751\u3002\u5168\u5bb6\u4eba\u540c\u5c4b\u6a90\u4e0b\u3002',
     stayPerNight: '/ \u665a',
-    stayCheckAvailability: '\u67e5\u770b\u53ef\u7528\u6027',
-    stayGuests: '\u5ba2\u4eba',
-    stayMostPopular: '\u6700\u53d7\u6b22\u8fce',
-    // Stay cards
-    stay1Title: '\u6e29\u99a8\u5c0f\u5c4b',
-    stay1Price: 'RM 450',
-    stay1Desc: '\u9002\u5408\u60c5\u4fa3\u7684\u4e61\u6751\u6728\u5c4b\u3002\u5305\u62ec\u4fef\u77b0\u83e0\u841d\u7530\u7684\u79c1\u4eba\u95e8\u5eca\u548c\u6e29\u6696\u7684\u58c1\u7089\u3002',
-    stay1Feat1: '2\u4f4d\u5ba2\u4eba',
-    stay1Feat2: '\u5927\u5e8a',
-    stay1Feat3: '\u542b\u65e9\u9910',
-    stay2Title: '\u5bb6\u5ead\u519c\u820d',
-    stay2Price: 'RM 750',
-    stay2Desc: '\u5bbd\u655e\u7684\u519c\u820d\uff0c\u914d\u6709\u5b8c\u6574\u53a8\u623f\u3001\u5ba2\u5385\u548c\u82b1\u56ed\u901a\u9053\u3002\u9002\u5408\u5bb6\u5ead\u3002',
-    stay2Feat1: '6\u4f4d\u5ba2\u4eba',
-    stay2Feat2: '3\u95f4\u5367\u5ba4',
-    stay2Feat3: '\u5b8c\u6574\u53a8\u623f',
-    stay3Title: '\u7eff\u8272\u9732\u8425',
-    stay3Price: 'RM 180',
-    stay3Desc: '\u5728\u661f\u7a7a\u4e0b\u5165\u7761\uff0c\u4eab\u53d7\u6211\u4eec\u7684\u9ad8\u7ea7\u9732\u8425\u8bbe\u7f6e\u3002\u5305\u62ec\u8212\u9002\u5bdd\u5177\u548c\u7bc7\u706b\u70b9\u3002',
-    stay3Feat1: '4\u4f4d\u5ba2\u4eba',
-    stay3Feat2: '\u63d0\u4f9b\u5e10\u7bf7',
-    stay3Feat3: '\u7bc7\u706b\u901a\u9053',
+    stayCheckAvailability: '\u901a\u8fc7WhatsApp\u9884\u8ba2',
+    stayName: 'Uncle Voo \u519c\u820d',
+    stayPrice: 'RM 600',
+    stayDesc: '\u60a8\u7684\u79c1\u4eba\u4e61\u6751\u5ea6\u5047\u5c4b\uff0c\u62e5\u6709\u96be\u5fd8\u5047\u671f\u6240\u9700\u7684\u4e00\u5207\u3002\u56db\u95f4\u5bbd\u655e\u7684\u5927\u5e8a\u623f\u3001\u8bbe\u5907\u9f50\u5168\u7684\u53a8\u623f\u3001\u4ee5\u53ca\u6240\u6709\u5bb6\u7684\u8212\u9002\uff0c\u5750\u843d\u5728\u5b81\u9759\u7684\u519c\u573a\u80cc\u666f\u4e2d\u3002\u70b9\u71c3BBQ\uff0c\u53ec\u96c6\u4eb2\u670b\u597d\u53cb\uff0c\u521b\u9020\u7f8e\u597d\u56de\u5fc6\u3002',
+    stayAmenityRooms: '4\u95f4\u5927\u5e8a\u623f',
+    stayAmenityGuests: '\u6700\u591a8\u4f4d\u5ba2\u4eba',
+    stayAmenityAircon: '\u7a7a\u8c03',
+    stayAmenityKitchen: '\u5b8c\u6574\u53a8\u623f',
+    stayAmenityBBQ: 'BBQ\u7089',
+    stayAmenityWater: '\u70ed\u6c34\u5668',
+    stayAmenityLaundry: '\u6d17\u8863\u673a',
     // Harvest section
     harvestTag: '\u76f4\u63a5\u4ece\u571f\u58e4\u4e2d',
     harvestTitle: '\u65b0\u9c9c\u6536\u83b7',
@@ -380,7 +350,7 @@ const translations = {
     contactPhone: '+60 12-345 6789',
     contactEmailAddr: 'hello@unclevoofarm.com',
     // Footer
-    footerCopyright: '\u00a9 2026 Uncle Voo Farm\u3002\u7248\u6743\u6240\u6709\u3002',
+    footerCopyright: '\u00a9 2026 Uncle Voo\'s Farm\u3002\u7248\u6743\u6240\u6709\u3002',
     footerMadeWith: '\u7528',
     footerAnd: '\u548c\u6709\u673a\u5806\u80a5\u5236\u4f5c\u3002',
     // Language
@@ -396,8 +366,22 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+function getSavedLanguage(): Language {
+  try {
+    const saved = localStorage.getItem('uncle-voo-lang');
+    if (saved === 'en' || saved === 'my' || saved === 'zh') return saved;
+  } catch {}
+  return 'en';
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguageState] = useState<Language>(getSavedLanguage);
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    try { localStorage.setItem('uncle-voo-lang', lang); } catch {}
+    document.documentElement.lang = lang === 'my' ? 'ms' : lang;
+  };
 
   const t = (key: TranslationKey): string => {
     return translations[language][key] || translations.en[key] || key;

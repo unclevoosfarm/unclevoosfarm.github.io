@@ -61,9 +61,9 @@ export function Lightbox({ isOpen, onClose, imageSrc, imageAlt = '' }: LightboxP
               className="max-w-full max-h-[85vh] object-contain rounded-md select-none"
             />
           </motion.div>
-          
+
           <div className="absolute bottom-4 left-0 right-0 text-center pointer-events-none">
-            <span className="text-white/80 font-['Quicksand'] text-sm bg-black/50 px-4 py-2 rounded-full backdrop-blur-md">
+            <span className="text-white/80 text-sm bg-black/50 px-4 py-2 rounded-full backdrop-blur-md">
               Tap anywhere outside to close
             </span>
           </div>
