@@ -1,14 +1,17 @@
 import { useLanguage } from './LanguageContext';
 import { motion } from 'motion/react';
 import { Star, StarHalf } from 'lucide-react';
+import testimonialsData from '@/content/testimonials.json';
 
 export function Testimonials() {
   const { t } = useLanguage();
+  const { rating, reviewCount, testimonials } = testimonialsData;
+  const featured = testimonials[0];
 
   return (
     <section
       id="reviews"
-      aria-label="Guest Reviews – Uncle Voo's Farm rated 4.9 out of 5"
+      aria-label={`Guest Reviews – Uncle Voo's Farm rated ${rating} out of 5`}
       className="bg-[var(--olive-dark)] py-16 px-6 lg:px-12"
       itemScope
       itemType="https://schema.org/LocalBusiness"
@@ -24,7 +27,7 @@ export function Testimonials() {
           {/* Left: Rating */}
           <div className="flex-shrink-0 text-center md:text-left">
             <p className="text-4xl font-extrabold text-white">
-              4.9<span className="text-[var(--cta)]">/5</span>
+              {rating}<span className="text-[var(--cta)]">/5</span>
             </p>
             <div className="flex items-center gap-0.5 justify-center md:justify-start mt-1">
               <Star className="w-5 h-5 text-[var(--cta)] fill-[var(--cta)]" />
@@ -42,10 +45,10 @@ export function Testimonials() {
           {/* Right: Featured Quote */}
           <div className="flex-1">
             <p className="text-xl text-gray-200 italic leading-relaxed">
-              "{t('review1Text')}"
+              "{featured.text}"
             </p>
             <p className="text-sm text-gray-400 mt-4 font-semibold">
-              - {t('review1Name')}, {t('review1Role')}
+              - {featured.name}, {featured.role}
             </p>
           </div>
         </motion.div>

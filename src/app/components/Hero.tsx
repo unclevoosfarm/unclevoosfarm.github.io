@@ -8,68 +8,35 @@ import {
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
+import heroData from '@/content/hero.json';
 
 /* ------------------------------------------------------------------ */
 /*  Slide data                                                         */
 /* ------------------------------------------------------------------ */
 
+type BadgeIcon = 'home' | 'store' | 'compass';
+
+function SlideIcon({ name, size }: { name: BadgeIcon; size: 'sm' | 'md' }) {
+  const cls = size === 'sm' ? 'h-3.5 w-3.5' : 'h-4 w-4';
+  if (name === 'home') return <Home className={cls} />;
+  if (name === 'store') return <Store className={cls} />;
+  return <Compass className={cls} />;
+}
+
 interface Slide {
+  id: string;
   badge: string;
-  badgeIcon: React.ReactNode;
+  badgeIcon: BadgeIcon;
   headingLine1: string;
   headingAccent: string;
   description: string;
   ctaLabel: string;
-  ctaIcon: React.ReactNode;
   ctaHref: string;
   image: string;
   imageAlt: string;
 }
 
-const slides: Slide[] = [
-  {
-    badge: 'Accommodation',
-    badgeIcon: <Home className="h-3.5 w-3.5" />,
-    headingLine1: 'Peaceful Homestay',
-    headingAccent: 'Experience',
-    description:
-      'Escape to our cozy cabins nestled among lush greenery. Wake up to birdsong, sip fresh coffee on the porch, and let the tranquility of the farm restore your spirit.',
-    ctaLabel: 'Rest & Recharge',
-    ctaIcon: <ArrowRight className="h-4 w-4" />,
-    ctaHref: '#stay',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuDIOj-Qstr6LNcXG4r8MsyE6jZyxBpmE7pHJJ-08BQg7oP7chvO9Z2CYdlm5pX709vAcxJTMMSfsKFjSWtq0q1fe2p5dfnnn4yABebjp4QWcdqLH3bZnHMrJ1pxrAfsX2gqK3WfxrQ30hE_4uJvz_Fq3Cnb30_KBa_AgSTQ_W7yISvCamExHejK7cZeouTBDL2829smMO5Dv9Unlhbl13AAOgCYEIeyRJRqtvJAwFrGj0IMOY59NvnsdTvvQVBsFKEenh1JDSKs_Ixo',
-    imageAlt: 'Cozy farmhouse cabin surrounded by lush tropical greenery at Uncle Voo\'s Farm',
-  },
-  {
-    badge: 'Fresh Produce',
-    badgeIcon: <Store className="h-3.5 w-3.5" />,
-    headingLine1: 'Organic Farm',
-    headingAccent: 'Shop',
-    description:
-      'Browse our farm shop stocked with fresh seasonal produce, homemade preserves, and artisan goods. All grown and crafted right here on Uncle Voo\'s land.',
-    ctaLabel: 'Browse Our Harvest',
-    ctaIcon: <Store className="h-4 w-4" />,
-    ctaHref: '#shop',
-    image:
-      'https://images.unsplash.com/photo-1488459716781-31db52582fe9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1280',
-    imageAlt: 'Fresh organic produce and seasonal harvest from Uncle Voo\'s Farm shop',
-  },
-  {
-    badge: 'Adventures',
-    badgeIcon: <Compass className="h-3.5 w-3.5" />,
-    headingLine1: 'Interactive Farm',
-    headingAccent: 'Tours',
-    description:
-      'Join an educational adventure through our working farm. Feed the animals, pick your own fruit, and discover the joy of sustainable farming. Perfect for families and curious minds.',
-    ctaLabel: 'Experience Farm Life',
-    ctaIcon: <Compass className="h-4 w-4" />,
-    ctaHref: '#tours',
-    image:
-      'https://lh3.googleusercontent.com/aida-public/AB6AXuAJl2xZx-XNH-9XqureycfbHsnjaC0z30K72rdfPmpceXNWzmUFBhskAL1nsomF_mA9hCfB6jIRvQ3Tcd3egOG5gJPQ_XmRyy7e3b_EyuJ08AaliGAyA4kb3XVsfyqa7px8X_401R-Qm8tlefjHY_1rIVlDLNcoBeRPWXTGCQsy0eqGB3-LSojmtWSJ-pA3rJhwPb381rmVYyj5evjDrL-Et-kffB_OUI2c8xUvWHyeicAaw_EpcDRY_22Alf_l5pBjhaCngMg04uQu',
-    imageAlt: 'Family enjoying a guided farm tour at Uncle Voo\'s organic farm in Malaysia',
-  },
-];
+const slides: Slide[] = heroData.slides as Slide[];
 
 const SLIDE_DURATION = 6000; // ms
 
@@ -199,7 +166,7 @@ export function Hero() {
             >
               {/* Badge */}
               <span className="mb-6 inline-flex items-center gap-2 rounded-full bg-[var(--primary)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white">
-                {slide.badgeIcon}
+                <SlideIcon name={slide.badgeIcon} size="sm" />
                 {slide.badge}
               </span>
 
@@ -225,7 +192,7 @@ export function Hero() {
                 className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[var(--olive-dark)] shadow-lg transition-colors hover:bg-[var(--cta)] hover:text-white"
               >
                 {slide.ctaLabel}
-                {slide.ctaIcon}
+                <SlideIcon name={slide.badgeIcon} size="md" />
               </motion.a>
             </motion.div>
           </AnimatePresence>

@@ -1,0 +1,24 @@
+{
+  "rating": "4.9",
+  "reviewCount": "200+",
+  "testimonials": [
+    {
+      "id": "sarah-jenkins",
+      "text": "Absolutely magical! The kids loved feeding the goats and the cabin was so cozy. We will definitely be back next summer.",
+      "name": "Sarah Jenkins",
+      "role": "Family Trip"
+    },
+    {
+      "id": "michael-tan",
+      "text": "The freshest produce I've ever tasted. I bought a box of vegetables to take home and they were delicious. Highly recommend!",
+      "name": "Michael Tan",
+      "role": "Day Visitor"
+    },
+    {
+      "id": "jessica-lee",
+      "text": "A perfect escape from the city. The wifi was surprisingly good, so I could work a bit while enjoying the nature views.",
+      "name": "Jessica Lee",
+      "role": "Digital Nomad"
+    }
+  ]
+}

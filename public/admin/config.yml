@@ -1,0 +1,174 @@
+backend:
+  name: github
+  repo: unclevoosfarm/web-page
+  branch: main
+  base_url: https://uncle-voos-farm.pages.dev
+  auth_endpoint: /api/auth
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  # ── Site Settings ──────────────────────────────────────────────────
+  - name: settings
+    label: Site Settings
+    files:
+      - name: general
+        label: General Settings
+        file: src/content/settings.json
+        fields:
+          - { name: siteName, label: Site Name, widget: string }
+          - { name: tagline, label: Tagline, widget: string }
+          - { name: bookingWhatsApp, label: Booking WhatsApp URL, widget: string }
+          - { name: shopWhatsApp, label: Shop WhatsApp URL, widget: string }
+          - { name: tourWhatsApp, label: Tour WhatsApp URL, widget: string }
+          - { name: shopEmail, label: Shop Email, widget: string }
+          - { name: footerCopyright, label: Footer Copyright Text, widget: string }
+
+  # ── Hero Slides ────────────────────────────────────────────────────
+  - name: hero
+    label: Hero
+    files:
+      - name: slides
+        label: Hero Slides
+        file: src/content/hero.json
+        fields:
+          - name: slides
+            label: Slides
+            widget: list
+            fields:
+              - { name: id, label: ID, widget: string }
+              - { name: badge, label: Badge Label, widget: string }
+              - name: badgeIcon
+                label: Badge Icon
+                widget: select
+                options:
+                  - { label: Home, value: home }
+                  - { label: Store, value: store }
+                  - { label: Compass, value: compass }
+              - { name: headingLine1, label: Heading Line 1, widget: string }
+              - { name: headingAccent, label: Heading Accent Word, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: ctaLabel, label: CTA Button Label, widget: string }
+              - { name: ctaHref, label: CTA Link, widget: string }
+              - { name: image, label: Image URL, widget: image }
+              - { name: imageAlt, label: Image Alt Text, widget: string }
+
+  # ── Stay ───────────────────────────────────────────────────────────
+  - name: stay
+    label: Farm Stay
+    files:
+      - name: farmhouse
+        label: Farmhouse Details
+        file: src/content/stay.json
+        fields:
+          - { name: name, label: Property Name, widget: string }
+          - { name: price, label: Price, widget: string }
+          - { name: priceUnit, label: Price Unit, widget: string }
+          - { name: description, label: Description, widget: text }
+          - { name: image, label: Main Image URL, widget: image }
+          - name: gallery
+            label: Gallery Images
+            widget: list
+            field: { name: url, label: Image URL, widget: image }
+          - { name: whatsappLink, label: WhatsApp Booking URL, widget: string }
+          - name: amenities
+            label: Amenities
+            widget: list
+            field: { name: item, label: Amenity, widget: string }
+
+  # ── Products ───────────────────────────────────────────────────────
+  - name: products
+    label: Harvest Products
+    files:
+      - name: product_list
+        label: Products List
+        file: src/content/products.json
+        fields:
+          - name: products
+            label: Products
+            widget: list
+            fields:
+              - { name: id, label: ID (slug), widget: string }
+              - { name: name, label: Name, widget: string }
+              - { name: price, label: Price, widget: string }
+              - { name: unit, label: Unit (e.g. /kg), widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: image, label: Image URL, widget: image }
+              - { name: bgColor, label: Card Background Colour (hex), widget: string }
+              - name: category
+                label: Category
+                widget: select
+                options:
+                  - Veggies
+                  - Fruits
+                  - Pantry
+              - { name: badge, label: Badge Text (optional), widget: string, required: false }
+              - name: badgeType
+                label: Badge Type
+                widget: select
+                required: false
+                options:
+                  - { label: In Season, value: season }
+                  - { label: Best Seller, value: best }
+                  - { label: None, value: '' }
+
+  # ── Farm Tours ─────────────────────────────────────────────────────
+  - name: tours
+    label: Farm Tours
+    files:
+      - name: tour_list
+        label: Tours List
+        file: src/content/tours.json
+        fields:
+          - name: tours
+            label: Tours
+            widget: list
+            fields:
+              - { name: id, label: ID (slug), widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: price, label: Price, widget: string }
+              - { name: duration, label: Duration, widget: string }
+              - { name: description, label: Description, widget: text }
+              - name: features
+                label: Feature Highlights (3 items)
+                widget: list
+                field: { name: item, label: Feature, widget: string }
+              - { name: image, label: Image URL, widget: image }
+              - { name: badge, label: Badge (e.g. Most Popular), widget: string, required: false }
+
+  # ── Testimonials ───────────────────────────────────────────────────
+  - name: testimonials
+    label: Testimonials
+    files:
+      - name: reviews
+        label: Guest Reviews
+        file: src/content/testimonials.json
+        fields:
+          - { name: rating, label: Overall Rating, widget: string }
+          - { name: reviewCount, label: Review Count Label, widget: string }
+          - name: testimonials
+            label: Testimonials
+            widget: list
+            fields:
+              - { name: id, label: ID (slug), widget: string }
+              - { name: text, label: Review Text, widget: text }
+              - { name: name, label: Reviewer Name, widget: string }
+              - { name: role, label: Reviewer Role / Trip Type, widget: string }
+
+  # ── Contact ────────────────────────────────────────────────────────
+  - name: contact
+    label: Contact Info
+    files:
+      - name: contact_details
+        label: Contact Details
+        file: src/content/contact.json
+        fields:
+          - { name: address, label: Address, widget: text }
+          - { name: phone, label: Phone Number, widget: string }
+          - { name: email, label: Email Address, widget: string }
+          - { name: whatsappNumber, label: WhatsApp Number (digits only), widget: string }
+          - { name: mapEmbedUrl, label: Google Maps Embed URL, widget: string }
+          - { name: facebook, label: Facebook URL, widget: string, required: false }
+          - { name: instagram, label: Instagram URL, widget: string, required: false }
+          - { name: twitter, label: Twitter / X URL, widget: string, required: false }

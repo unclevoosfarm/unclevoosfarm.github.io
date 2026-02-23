@@ -3,6 +3,7 @@ import svgPaths from '../../imports/svg-3ykeeib9ga';
 import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
+import contactData from '@/content/contact.json';
 
 function MapPinIcon() {
   return (
@@ -59,9 +60,9 @@ export function ContactSection() {
   }, []);
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Uncle Voo\'s Farm on Facebook' },
-    { icon: Instagram, href: '#', label: 'Uncle Voo\'s Farm on Instagram' },
-    { icon: Twitter, href: '#', label: 'Uncle Voo\'s Farm on Twitter' },
+    { icon: Facebook, href: contactData.facebook || '#', label: "Uncle Voo's Farm on Facebook" },
+    { icon: Instagram, href: contactData.instagram || '#', label: "Uncle Voo's Farm on Instagram" },
+    ...(contactData.twitter ? [{ icon: Twitter, href: contactData.twitter, label: "Uncle Voo's Farm on Twitter" }] : []),
   ];
 
   return (
@@ -156,21 +157,21 @@ export function ContactSection() {
                 <div className="flex items-start gap-4">
                   <MapPinIcon />
                   <span className="text-white/90 text-sm whitespace-pre-line leading-relaxed">
-                    {t('contactAddress')}
+                    {contactData.address}
                   </span>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <PhoneIcon />
-                  <a href={`tel:${t('contactPhone')}`} className="text-white/90 text-sm hover:text-white transition-colors">
-                    {t('contactPhone')}
+                  <a href={`tel:${contactData.phone}`} className="text-white/90 text-sm hover:text-white transition-colors">
+                    {contactData.phone}
                   </a>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <EmailIcon />
-                  <a href={`mailto:${t('contactEmailAddr')}`} className="text-white/90 text-sm hover:text-white transition-colors">
-                    {t('contactEmailAddr')}
+                  <a href={`mailto:${contactData.email}`} className="text-white/90 text-sm hover:text-white transition-colors">
+                    {contactData.email}
                   </a>
                 </div>
               </address>

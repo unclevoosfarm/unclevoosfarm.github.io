@@ -1,0 +1,64 @@
+{
+  "products": [
+    {
+      "id": "organic-broccoli",
+      "name": "Organic Broccoli",
+      "price": "RM 15.00",
+      "unit": "/kg",
+      "description": "Crisp, green, and pesticide-free. Perfect for stir-fries or steaming.",
+      "image": "https://images.unsplash.com/photo-1769424052115-1631279ce8e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZXJicyUyMGJ1bmRsZSUyMG9yZ2FuaWN8ZW58MXx8fHwxNzcxNDg2NTcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "bgColor": "#F0FDF4",
+      "category": "Veggies",
+      "badge": "In Season",
+      "badgeType": "season"
+    },
+    {
+      "id": "honey-pineapple",
+      "name": "Honey Pineapple",
+      "price": "RM 22.00",
+      "unit": "/pc",
+      "description": "Uncle Voo's famous sweet pineapples. Juicy and golden.",
+      "image": "https://images.unsplash.com/photo-1472352255192-75fb1f6b329c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaW5lYXBwbGUlMjB0cm9waWNhbCUyMGZydWl0fGVufDF8fHx8MTc3MTQyMDE5MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "bgColor": "#FEFCE8",
+      "category": "Fruits",
+      "badge": "Best Seller",
+      "badgeType": "best"
+    },
+    {
+      "id": "red-lady-papaya",
+      "name": "Red Lady Papaya",
+      "price": "RM 18.50",
+      "unit": "/kg",
+      "description": "Rich in vitamins and flavor. Great for breakfast or salads.",
+      "image": "https://images.unsplash.com/photo-1671447553255-20117f875f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwcGFwYXlhJTIwZnJ1aXR8ZW58MXx8fHwxNzcxNDg2NTcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "bgColor": "#f0f5ee",
+      "category": "Fruits",
+      "badge": "",
+      "badgeType": ""
+    },
+    {
+      "id": "farm-fresh-eggs",
+      "name": "Farm Fresh Eggs",
+      "price": "RM 18.00",
+      "unit": "/ tray (30pcs)",
+      "description": "Free-range kampong eggs collected daily. Rich yolks and superior taste for your breakfast.",
+      "image": "https://images.unsplash.com/photo-1728894703381-b2b6effd5ff2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXJtJTIwZnJlc2glMjBlZ2dzJTIwYmFza2V0JTIwcnVzdGljfGVufDF8fHx8MTc3MTQ5MDEwNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "bgColor": "#FFFBEB",
+      "category": "Pantry",
+      "badge": "",
+      "badgeType": ""
+    },
+    {
+      "id": "raw-honey",
+      "name": "Raw Honey",
+      "price": "RM 45.00",
+      "unit": "/ jar (500g)",
+      "description": "Pure, unprocessed honey from our own apiary. Contains natural enzymes and pollen.",
+      "image": "https://images.unsplash.com/photo-1671548185843-3f50c6c1060b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwcmF3JTIwaG9uZXklMjBqYXIlMjBmYXJtfGVufDF8fHx8MTc3MTQ5MDEwNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "bgColor": "#FEF3C7",
+      "category": "Pantry",
+      "badge": "New Arrival",
+      "badgeType": "season"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import { useLanguage } from './LanguageContext';
 import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
+import stayData from '@/content/stay.json';
 import { Lightbox } from './Lightbox';
 import {
   ZoomIn,
@@ -45,8 +46,7 @@ export function StayCards() {
     { icon: WashingMachine, label: t('stayAmenityLaundry') },
   ];
 
-  const imageUrl =
-    'https://images.unsplash.com/photo-1723726594846-60f5fbe35cd9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBmYXJtaG91c2UlMjBjb3VudHJ5c2lkZXxlbnwxfHx8fDE3NzE0ODc5MDh8MA&ixlib=rb-4.1.0&q=80&w=1080';
+  const imageUrl = stayData.image;
 
   return (
     <section ref={sectionRef} id="stay" aria-label="Farm Stay – Cozy Organic Farmhouse Accommodation at Uncle Voo's Farm" className="py-20 lg:py-24 bg-[var(--background)]">
@@ -87,7 +87,7 @@ export function StayCards() {
               </div>
               <motion.img
                 src={imageUrl}
-                alt={t('stayName')}
+                alt={stayData.name}
                 className="w-full h-full object-cover"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.5 }}
@@ -95,8 +95,8 @@ export function StayCards() {
               {/* Price Badge */}
               <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-3 shadow-lg z-20">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-[var(--primary)] text-2xl font-bold">{t('stayPrice')}</span>
-                  <span className="text-gray-500 text-sm">{t('stayPerNight')}</span>
+                  <span className="text-[var(--primary)] text-2xl font-bold">{stayData.price}</span>
+                  <span className="text-gray-500 text-sm">{stayData.priceUnit}</span>
                 </div>
               </div>
             </div>
@@ -104,11 +104,11 @@ export function StayCards() {
             {/* Details Side */}
             <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
               <h3 className="text-[var(--foreground)] text-2xl lg:text-3xl font-bold mb-4">
-                {t('stayName')}
+                {stayData.name}
               </h3>
 
               <p className="text-gray-600 leading-relaxed mb-8">
-                {t('stayDesc')}
+                {stayData.description}
               </p>
 
               {/* Amenities Grid */}
@@ -133,9 +133,7 @@ export function StayCards() {
 
               {/* CTA Button */}
               <motion.a
-                href={`https://wa.me/60123456789?text=${encodeURIComponent(
-                  'Hi Uncle Voo, I would like to check availability for the farmhouse'
-                )}`}
+                href={stayData.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}

@@ -1,0 +1,34 @@
+{
+  "tours": [
+    {
+      "id": "morning-farm-walk",
+      "title": "Morning Farm Walk",
+      "price": "RM 35",
+      "duration": "1.5 hours",
+      "description": "Start your day with a peaceful walk through the farm. Visit the vegetable gardens, fruit orchards, and enjoy the fresh morning air.",
+      "features": ["Up to 10 guests", "Light refreshments", "Photo opportunities"],
+      "image": "https://images.unsplash.com/photo-1500076656116-558758c991c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "badge": ""
+    },
+    {
+      "id": "harvest-experience",
+      "title": "Harvest Experience",
+      "price": "RM 65",
+      "duration": "2.5 hours",
+      "description": "Get your hands dirty! Pick your own fruits and vegetables straight from the field, and learn organic farming techniques from Uncle Voo himself.",
+      "features": ["Up to 8 guests", "Take home your harvest", "Farming techniques"],
+      "image": "https://images.unsplash.com/photo-1574943320219-553eb213f72d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "badge": "Most Popular"
+    },
+    {
+      "id": "animal-feeding-adventure",
+      "title": "Animal Feeding Adventure",
+      "price": "RM 45",
+      "duration": "2 hours",
+      "description": "Meet our friendly farm animals! Feed the goats, collect eggs from the chicken coop, and learn about sustainable animal care.",
+      "features": ["Up to 12 guests", "Kid-friendly", "Includes farm snacks"],
+      "image": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "badge": "Family Favorite"
+    }
+  ]
+}

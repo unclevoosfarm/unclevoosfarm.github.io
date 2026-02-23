@@ -1,5 +1,6 @@
 import { useLanguage } from './LanguageContext';
-import { Mail, MessageCircle, ZoomIn, Filter } from 'lucide-react';
+import { MessageCircle, ZoomIn, Filter } from 'lucide-react';
+import productsData from '@/content/products.json';
 import svgPaths from '../../imports/svg-3ykeeib9ga';
 import { motion, AnimatePresence } from 'motion/react';
 import { useEffect, useRef, useState, forwardRef } from 'react';
@@ -36,8 +37,6 @@ interface ProductCardProps {
 }
 
 const ProductCard = forwardRef<HTMLElement, ProductCardProps>(({ name, price, unit, description, image, bgColor, badge, index, onImageClick }, ref) => {
-  const { t } = useLanguage();
-  // Using layout prop for shared layout animations
   return (
     <motion.article
       ref={ref}
@@ -50,7 +49,8 @@ const ProductCard = forwardRef<HTMLElement, ProductCardProps>(({ name, price, un
     >
       {/* Image Section */}
       <div
-        className={`${bgColor} h-[256px] relative overflow-hidden group cursor-pointer`}
+        className="h-[256px] relative overflow-hidden group cursor-pointer"
+        style={{ backgroundColor: bgColor }}
         onClick={() => onImageClick(image)}
       >
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300">
@@ -130,56 +130,10 @@ export function HarvestProducts() {
 
   const categories = ['All', 'Fruits', 'Veggies', 'Pantry'];
 
-  const products = [
-    {
-      name: t('prod1Name'),
-      price: t('prod1Price'),
-      unit: t('prod1Unit'),
-      description: t('prod1Desc'),
-      image: 'https://images.unsplash.com/photo-1769424052115-1631279ce8e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZXJicyUyMGJ1bmRsZSUyMG9yZ2FuaWN8ZW58MXx8fHwxNzcxNDg2NTcxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bgColor: 'bg-[#F0FDF4]', // Green
-      category: 'Veggies',
-      badge: { text: t('harvestInSeason'), type: 'season' as const },
-    },
-    {
-      name: t('prod2Name'),
-      price: t('prod2Price'),
-      unit: t('prod2Unit'),
-      description: t('prod2Desc'),
-      image: 'https://images.unsplash.com/photo-1472352255192-75fb1f6b329c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaW5lYXBwbGUlMjB0cm9waWNhbCUyMGZydWl0fGVufDF8fHx8MTc3MTQyMDE5MXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bgColor: 'bg-[#FEFCE8]', // Yellow
-      category: 'Fruits',
-      badge: { text: t('harvestBestSeller'), type: 'best' as const },
-    },
-    {
-      name: t('prod3Name'),
-      price: t('prod3Price'),
-      unit: t('prod3Unit'),
-      description: t('prod3Desc'),
-      image: 'https://images.unsplash.com/photo-1671447553255-20117f875f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwcGFwYXlhJTIwZnJ1aXR8ZW58MXx8fHwxNzcxNDg2NTcwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bgColor: 'bg-[#f0f5ee]', // Light green tint
-      category: 'Fruits',
-    },
-    {
-      name: 'Farm Fresh Eggs',
-      price: 'RM 18.00',
-      unit: '/ tray (30pcs)',
-      description: 'Free-range kampong eggs collected daily. Rich yolks and superior taste for your breakfast.',
-      image: 'https://images.unsplash.com/photo-1728894703381-b2b6effd5ff2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXJtJTIwZnJlc2glMjBlZ2dzJTIwYmFza2V0JTIwcnVzdGljfGVufDF8fHx8MTc3MTQ5MDEwNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bgColor: 'bg-[#FFFBEB]', // Amber
-      category: 'Pantry',
-    },
-    {
-      name: 'Raw Honey',
-      price: 'RM 45.00',
-      unit: '/ jar (500g)',
-      description: 'Pure, unprocessed honey from our own apiary. Contains natural enzymes and pollen.',
-      image: 'https://images.unsplash.com/photo-1671548185843-3f50c6c1060b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwcmF3JTIwaG9uZXklMjBqYXIlMjBmYXJtfGVufDF8fHx8MTc3MTQ5MDEwNXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      bgColor: 'bg-[#FEF3C7]', // Amber Darker
-      category: 'Pantry',
-      badge: { text: 'New Arrival', type: 'season' as const },
-    },
-  ];
+  const products = productsData.products.map(p => ({
+    ...p,
+    badge: p.badge && p.badgeType ? { text: p.badge, type: p.badgeType as 'season' | 'best' } : undefined,
+  }));
 
   const filteredProducts = activeCategory === 'All'
     ? products
@@ -224,7 +178,7 @@ export function HarvestProducts() {
           <AnimatePresence mode="popLayout">
             {filteredProducts.map((product, i) => (
               <ProductCard
-                key={product.name}
+                key={product.id}
                 {...product}
                 index={i}
                 onImageClick={setLightboxImage}

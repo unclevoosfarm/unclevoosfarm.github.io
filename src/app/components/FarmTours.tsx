@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { Clock, ZoomIn, MessageCircle } from 'lucide-react';
 import { Lightbox } from './Lightbox';
+import toursData from '@/content/tours.json';
 
 function CheckCircle() {
   return (
@@ -170,34 +171,15 @@ export function FarmTours() {
     };
   }, []);
 
-  const tours = [
-    {
-      title: t('tour1Name'),
-      price: t('tour1Price'),
-      duration: t('tour1Duration'),
-      description: t('tour1Desc'),
-      features: [t('tour1Feat1'), t('tour1Feat2'), t('tour1Feat3')],
-      imageUrl: 'https://images.unsplash.com/photo-1500076656116-558758c991c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-    },
-    {
-      title: t('tour2Name'),
-      price: t('tour2Price'),
-      duration: t('tour2Duration'),
-      description: t('tour2Desc'),
-      features: [t('tour2Feat1'), t('tour2Feat2'), t('tour2Feat3')],
-      imageUrl: 'https://images.unsplash.com/photo-1574943320219-553eb213f72d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      badge: t('toursMostPopular'),
-    },
-    {
-      title: t('tour3Name'),
-      price: t('tour3Price'),
-      duration: t('tour3Duration'),
-      description: t('tour3Desc'),
-      features: [t('tour3Feat1'), t('tour3Feat2'), t('tour3Feat3')],
-      imageUrl: 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      badge: t('toursFamilyFavorite'),
-    },
-  ];
+  const tours = toursData.tours.map(tour => ({
+    title: tour.title,
+    price: tour.price,
+    duration: tour.duration,
+    description: tour.description,
+    features: tour.features,
+    imageUrl: tour.image,
+    badge: tour.badge || undefined,
+  }));
 
   return (
     <section ref={sectionRef} id="tours" aria-label="Farm Tour Experiences – Guided Agricultural Tours at Uncle Voo's Farm Malaysia" className="py-20 lg:py-24 bg-[var(--background)] relative">

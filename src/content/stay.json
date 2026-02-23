@@ -1,0 +1,20 @@
+{
+  "name": "Uncle Voo's Farmhouse",
+  "price": "RM 600",
+  "priceUnit": "/ night",
+  "description": "Your private countryside retreat with everything you need for a memorable getaway. Four spacious queen bedrooms, a fully equipped kitchen, and all the comforts of home, set against the peaceful backdrop of a working farm. Fire up the BBQ, gather your favourite people, and make memories that last.",
+  "image": "https://images.unsplash.com/photo-1723726594846-60f5fbe35cd9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYW1pbHklMjBmYXJtaG91c2UlMjBjb3VudHJ5c2lkZXxlbnwxfHx8fDE3NzE0ODc5MDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+  "gallery": [
+    "https://images.unsplash.com/photo-1723726594846-60f5fbe35cd9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+  ],
+  "whatsappLink": "https://wa.me/60123456789?text=Hi%20Uncle%20Voo%2C%20I%20would%20like%20to%20book%20a%20stay!",
+  "amenities": [
+    "4 Queen Rooms",
+    "Up to 8 Guests",
+    "Air Conditioning",
+    "Full Kitchen",
+    "BBQ Stove",
+    "Water Heater",
+    "Laundry"
+  ]
+}
