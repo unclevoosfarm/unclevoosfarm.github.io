@@ -6,7 +6,7 @@ backend:
   auth_endpoint: /
 
 media_folder: public/uploads
-public_folder: /web-page/uploads
+public_folder: /home/uploads
 
 collections:
   # ── Site Settings ──────────────────────────────────────────────────
