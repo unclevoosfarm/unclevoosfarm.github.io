@@ -2,7 +2,7 @@ backend:
   name: github
   repo: unclevoosfarm/web-page
   branch: main
-  base_url: https://uncle-voos-farm-cms-auth.YOUR-SUBDOMAIN.workers.dev
+  base_url: https://uncle-voos-farm-cms-auth.uvf-cms.workers.dev
   auth_endpoint: /
 
 media_folder: public/uploads
