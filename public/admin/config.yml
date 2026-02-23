@@ -2,11 +2,11 @@ backend:
   name: github
   repo: unclevoosfarm/web-page
   branch: main
-  base_url: https://uncle-voos-farm.pages.dev
-  auth_endpoint: /api/auth
+  base_url: https://uncle-voos-farm-cms-auth.YOUR-SUBDOMAIN.workers.dev
+  auth_endpoint: /
 
 media_folder: public/uploads
-public_folder: /uploads
+public_folder: /web-page/uploads
 
 collections:
   # ── Site Settings ──────────────────────────────────────────────────
