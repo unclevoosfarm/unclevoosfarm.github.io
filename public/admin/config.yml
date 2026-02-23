@@ -106,45 +106,50 @@ collections:
   - name: stay
     label: Farm Stay
     files:
-      - name: farmhouse
-        label: Farmhouse Details
+      - name: stays_list
+        label: Stay Listings
         file: src/content/stay.json
         fields:
-          - name: name
-            label: Property Name
-            widget: object
-            fields:
-              - { name: en, label: "English", widget: string }
-              - { name: my, label: "Malay (BM)", widget: string }
-              - { name: zh, label: "Chinese (中文)", widget: string }
-          - { name: price, label: Price, widget: string }
-          - name: priceUnit
-            label: Price Unit
-            widget: object
-            fields:
-              - { name: en, label: "English", widget: string }
-              - { name: my, label: "Malay (BM)", widget: string }
-              - { name: zh, label: "Chinese (中文)", widget: string }
-          - name: description
-            label: Description
-            widget: object
-            fields:
-              - { name: en, label: "English", widget: text }
-              - { name: my, label: "Malay (BM)", widget: text }
-              - { name: zh, label: "Chinese (中文)", widget: text }
-          - { name: image, label: Main Image URL, widget: image }
-          - name: gallery
-            label: Gallery Images
-            widget: list
-            field: { name: url, label: Image URL, widget: image }
-          - { name: whatsappLink, label: WhatsApp Booking URL, widget: string }
-          - name: amenities
-            label: Amenities
+          - name: stays
+            label: Stays
             widget: list
             fields:
-              - { name: en, label: "English", widget: string }
-              - { name: my, label: "Malay (BM)", widget: string }
-              - { name: zh, label: "Chinese (中文)", widget: string }
+              - { name: id, label: ID (slug), widget: string }
+              - name: name
+                label: Property Name
+                widget: object
+                fields:
+                  - { name: en, label: "English", widget: string }
+                  - { name: my, label: "Malay (BM)", widget: string }
+                  - { name: zh, label: "Chinese (中文)", widget: string }
+              - { name: price, label: Price, widget: string }
+              - name: priceUnit
+                label: Price Unit
+                widget: object
+                fields:
+                  - { name: en, label: "English", widget: string }
+                  - { name: my, label: "Malay (BM)", widget: string }
+                  - { name: zh, label: "Chinese (中文)", widget: string }
+              - name: description
+                label: Description
+                widget: object
+                fields:
+                  - { name: en, label: "English", widget: text }
+                  - { name: my, label: "Malay (BM)", widget: text }
+                  - { name: zh, label: "Chinese (中文)", widget: text }
+              - { name: image, label: Main Image URL, widget: image }
+              - name: gallery
+                label: Gallery Images
+                widget: list
+                field: { name: url, label: Image URL, widget: image }
+              - { name: whatsappLink, label: WhatsApp Booking URL, widget: string }
+              - name: amenities
+                label: Amenities
+                widget: list
+                fields:
+                  - { name: en, label: "English", widget: string }
+                  - { name: my, label: "Malay (BM)", widget: string }
+                  - { name: zh, label: "Chinese (中文)", widget: string }
 
   # ── Products ───────────────────────────────────────────────────────
   - name: products
