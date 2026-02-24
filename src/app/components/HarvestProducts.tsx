@@ -96,11 +96,13 @@ const ProductCard = forwardRef<HTMLElement, ProductCardProps>(({ name, price, un
         {/* Title */}
         <h3 className="text-[var(--foreground)] text-2xl mb-2">{name}</h3>
 
-        {/* Price row */}
-        <div className="flex items-baseline gap-1 mb-4">
-          <span className="text-[var(--primary)] text-3xl font-semibold">{price}</span>
-          <span className="text-gray-500 text-sm">{unit}</span>
-        </div>
+        {/* Price row — only shown if price is set */}
+        {price && (
+          <div className="flex items-baseline gap-1 mb-4">
+            <span className="text-[var(--primary)] text-3xl font-semibold">{price}</span>
+            <span className="text-gray-500 text-sm">{unit}</span>
+          </div>
+        )}
 
         {/* Description */}
         <p className="text-gray-600 text-sm leading-relaxed mb-8 flex-1">

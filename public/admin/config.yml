@@ -171,8 +171,8 @@ collections:
                   - { name: en, label: "English", widget: string }
                   - { name: my, label: "Malay (BM)", widget: string }
                   - { name: zh, label: "Chinese (中文)", widget: string }
-              - { name: price, label: Price, widget: string }
-              - { name: unit, label: Unit (e.g. /kg), widget: string }
+              - { name: price, label: Price, widget: string, required: false, hint: "Leave blank if price not yet set" }
+              - { name: unit, label: Unit (e.g. /kg), widget: string, required: false }
               - name: description
                 label: Description
                 widget: object
