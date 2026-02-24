@@ -34,7 +34,8 @@ interface ProductCardProps {
   description: string;
   image: string;
   bgColor: string;
-  category: string;
+  category: Record<Lang, string>;
+  categoryKey: string;
   badge?: { text: string; type: 'season' | 'best' };
   index: number;
   onImageClick: (url: string) => void;
@@ -130,20 +131,28 @@ ProductCard.displayName = 'ProductCard';
 export function HarvestProducts() {
   const { t, language } = useLanguage();
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
-  const [activeCategory, setActiveCategory] = useState('All');
+  // activeCategory stores the 'en' key as stable identifier
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
-  const categories = ['All', 'Fruits', 'Veggies', 'Pantry'];
+  // Derive unique categories from products, preserving insertion order
+  const categoryMap = new Map<string, Record<Lang, string>>();
+  for (const p of productsData.products) {
+    if (!categoryMap.has(p.category.en)) {
+      categoryMap.set(p.category.en, p.category);
+    }
+  }
 
   const products = productsData.products.map(p => ({
     ...p,
     name: loc(p.name, language),
     description: loc(p.description, language),
+    categoryKey: p.category.en,
     badge: p.badge && p.badgeType ? { text: p.badge, type: p.badgeType as 'season' | 'best' } : undefined,
   }));
 
-  const filteredProducts = activeCategory === 'All'
+  const filteredProducts = activeCategory === null
     ? products
-    : products.filter(p => p.category === activeCategory);
+    : products.filter(p => p.categoryKey === activeCategory);
 
   return (
     <section id="shop" aria-label="Fresh Organic Harvest Shop – Buy Fruits, Vegetables and Farm Produce from Uncle Voo's Farm" className="py-20 lg:py-24 bg-[var(--cream)] relative min-h-[800px]">
@@ -162,18 +171,30 @@ export function HarvestProducts() {
             </div>
           </div>
 
-          {/* Category Filter Pills */}
+          {/* Category Filter Pills — derived dynamically from products */}
           <div className="flex flex-wrap justify-center gap-3 bg-white p-2 rounded-full shadow-sm border border-gray-100">
-            {categories.map((cat) => (
+            {/* "All" tab */}
+            <button
+              onClick={() => setActiveCategory(null)}
+              className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === null
+                  ? 'bg-[var(--primary)] text-white shadow-md'
+                  : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
+                }`}
+            >
+              {t('harvestFilterAll')}
+            </button>
+
+            {/* One tab per unique category */}
+            {[...categoryMap.entries()].map(([key, labelObj]) => (
               <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === cat
+                key={key}
+                onClick={() => setActiveCategory(key)}
+                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === key
                     ? 'bg-[var(--primary)] text-white shadow-md'
                     : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
                   }`}
               >
-                {cat}
+                {loc(labelObj, language)}
               </button>
             ))}
           </div>

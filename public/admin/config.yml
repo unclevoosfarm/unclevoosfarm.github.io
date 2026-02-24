@@ -184,11 +184,11 @@ collections:
               - { name: bgColor, label: Card Background Colour (hex), widget: string }
               - name: category
                 label: Category
-                widget: select
-                options:
-                  - Veggies
-                  - Fruits
-                  - Pantry
+                widget: object
+                fields:
+                  - { name: en, label: "English (used as filter key)", widget: string }
+                  - { name: my, label: "Malay (BM)", widget: string }
+                  - { name: zh, label: "Chinese (中文)", widget: string }
               - { name: badge, label: Badge Text (optional), widget: string, required: false }
               - name: badgeType
                 label: Badge Type

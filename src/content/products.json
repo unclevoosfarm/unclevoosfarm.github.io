@@ -8,7 +8,7 @@
       "description": { "en": "Crisp, green, and pesticide-free. Perfect for stir-fries or steaming.", "my": "Segar, hijau, dan bebas racun perosak. Sesuai untuk tumis atau kukus.", "zh": "新鲜翠绿，无农药。适合炒菜或蒸食。" },
       "image": "https://images.unsplash.com/photo-1769424052115-1631279ce8e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZXJicyUyMGJ1bmRsZSUyMG9yZ2FuaWN8ZW58MXx8fHwxNzcxNDg2NTcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "bgColor": "#F0FDF4",
-      "category": "Veggies",
+      "category": { "en": "Veggies", "my": "Sayur-sayuran", "zh": "蔬菜" },
       "badge": "In Season",
       "badgeType": "season"
     },
@@ -20,7 +20,7 @@
       "description": { "en": "Uncle Voo's famous sweet pineapples. Juicy and golden.", "my": "Nanas manis terkenal Pak Voo. Berair dan berwarna keemasan.", "zh": "伍叔叔著名的甜菠萝，多汁金黄。" },
       "image": "https://images.unsplash.com/photo-1472352255192-75fb1f6b329c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaW5lYXBwbGUlMjB0cm9waWNhbCUyMGZydWl0fGVufDF8fHx8MTc3MTQyMDE5MXww&ixlib=rb-4.1.0&q=80&w=1080",
       "bgColor": "#FEFCE8",
-      "category": "Fruits",
+      "category": { "en": "Fruits", "my": "Buah-buahan", "zh": "水果" },
       "badge": "Best Seller",
       "badgeType": "best"
     },
@@ -32,7 +32,7 @@
       "description": { "en": "Rich in vitamins and flavor. Great for breakfast or salads.", "my": "Kaya dengan vitamin dan rasa. Sesuai untuk sarapan atau salad.", "zh": "富含维生素，风味浓郁。适合早餐或沙拉。" },
       "image": "https://images.unsplash.com/photo-1671447553255-20117f875f04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwcGFwYXlhJTIwZnJ1aXR8ZW58MXx8fHwxNzcxNDg2NTcwfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "bgColor": "#f0f5ee",
-      "category": "Fruits",
+      "category": { "en": "Fruits", "my": "Buah-buahan", "zh": "水果" },
       "badge": "",
       "badgeType": ""
     },
@@ -44,7 +44,7 @@
       "description": { "en": "Free-range kampong eggs collected daily. Rich yolks and superior taste for your breakfast.", "my": "Telur ayam kampung lepas bebas dikutip setiap hari. Kuning telur yang kaya dan rasa istimewa untuk sarapan anda.", "zh": "每日采集的放养鸡蛋，蛋黄丰富，早餐首选。" },
       "image": "https://images.unsplash.com/photo-1728894703381-b2b6effd5ff2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXJtJTIwZnJlc2glMjBlZ2dzJTIwYmFza2V0JTIwcnVzdGljfGVufDF8fHx8MTc3MTQ5MDEwNXww&ixlib=rb-4.1.0&q=80&w=1080",
       "bgColor": "#FFFBEB",
-      "category": "Pantry",
+      "category": { "en": "Pantry", "my": "Barangan Runcit", "zh": "食品储藏" },
       "badge": "",
       "badgeType": ""
     },
@@ -56,7 +56,7 @@
       "description": { "en": "Pure, unprocessed honey from our own apiary. Contains natural enzymes and pollen.", "my": "Madu tulen tanpa proses dari penternakan lebah kami sendiri. Mengandungi enzim semula jadi dan debunga.", "zh": "来自自家蜂场的纯天然蜂蜜，含天然酵素与花粉。" },
       "image": "https://images.unsplash.com/photo-1671548185843-3f50c6c1060b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwcmF3JTIwaG9uZXklMjBqYXIlMjBmYXJtfGVufDF8fHx8MTc3MTQ5MDEwNXww&ixlib=rb-4.1.0&q=80&w=1080",
       "bgColor": "#FEF3C7",
-      "category": "Pantry",
+      "category": { "en": "Pantry", "my": "Barangan Runcit", "zh": "食品储藏" },
       "badge": "New Arrival",
       "badgeType": "season"
     }

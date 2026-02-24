@@ -40,6 +40,7 @@ const translations = {
     stayAmenityLaundry: 'Laundry',
     // Harvest section
     harvestTag: 'Straight from the soil',
+    harvestFilterAll: 'All',
     harvestTitle: 'Fresh Harvest',
     harvestSeeAll: 'See All Products',
     harvestAddToCart: 'Add to Cart',
@@ -157,6 +158,7 @@ const translations = {
     stayAmenityLaundry: 'Dobi',
     // Harvest section
     harvestTag: 'Terus dari tanah',
+    harvestFilterAll: 'Semua',
     harvestTitle: 'Tuaian Segar',
     harvestSeeAll: 'Lihat Semua Produk',
     harvestAddToCart: 'Tambah ke Troli',
@@ -273,7 +275,8 @@ const translations = {
     stayAmenityWater: '\u70ed\u6c34\u5668',
     stayAmenityLaundry: '\u6d17\u8863\u673a',
     // Harvest section
-    harvestTag: '\u76f4\u63a5\u4ece\u571f\u58e4\u4e2d',
+    harvestTag: '直接从土壤中',
+    harvestFilterAll: '全部',
     harvestTitle: '\u65b0\u9c9c\u6536\u83b7',
     harvestSeeAll: '\u67e5\u770b\u6240\u6709\u4ea7\u54c1',
     harvestAddToCart: '\u52a0\u5165\u8d2d\u7269\u8f66',
