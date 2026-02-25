@@ -46,14 +46,16 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const endpoint = contactData.formspreeEndpoint;
-    if (!endpoint) return; // no endpoint configured yet
+    const accessKey = contactData.web3formsKey;
+    if (!accessKey) return; // key not configured yet
     setFormState('loading');
     try {
       const form = e.currentTarget;
-      const res = await fetch(endpoint, {
+      const data = new FormData(form);
+      data.append('access_key', accessKey);
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: new FormData(form),
+        body: data,
         headers: { Accept: 'application/json' },
       });
       if (res.ok) {
