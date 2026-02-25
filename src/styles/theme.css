@@ -2,32 +2,36 @@
 
 :root {
   --font-size: 16px;
-  --background: #F5F6F3;
-  --foreground: #2C3527;
+  /* Active palette: Forest & Teal
+   * To switch palettes, copy values from PaletteSwitcher.tsx and paste here.
+   * Available: sage-cream | forest-teal | moss-rose | olive-blue
+   */
+  --background: #F3F5F2;
+  --foreground: #1E2B1E;
   --card: #ffffff;
-  --card-foreground: #2C3527;
+  --card-foreground: #1E2B1E;
   --popover: #ffffff;
-  --popover-foreground: #2C3527;
-  --primary: #7D8E6E;
+  --popover-foreground: #1E2B1E;
+  --primary: #4A6741;
   --primary-foreground: #ffffff;
-  --primary-dark: #6A7A5C;
-  --cta: #7D8E6E;
-  --cta-dark: #6A7A5C;
-  --secondary: #6A7A5C;
+  --primary-dark: #3B5434;
+  --cta: #3E8E7E;
+  --cta-dark: #337368;
+  --secondary: #3B5434;
   --secondary-foreground: #ffffff;
-  --olive-dark: #2C3527;
+  --olive-dark: #1E2B1E;
   --olive-medium: #6B7F6B;
-  --cream: #E8EDE4;
-  --muted: #E8EDE4;
+  --cream: #E4EBE4;
+  --muted: #E4EBE4;
   --muted-foreground: #6B7F6B;
-  --accent: #E2E7DE;
-  --accent-foreground: #2C3527;
+  --accent: #DEE5DE;
+  --accent-foreground: #1E2B1E;
   --destructive: #d4183d;
   --destructive-foreground: #ffffff;
   --border: rgba(0, 0, 0, 0.1);
   --input: transparent;
-  --input-background: #E8EDE4;
-  --switch-background: #C5CEC1;
+  --input-background: #E4EBE4;
+  --switch-background: #C0CAC0;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
   --ring: #6B7F6B;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLanguage, type Language } from './LanguageContext';
 import { motion } from 'motion/react';
-import { PaletteSwitcher } from './PaletteSwitcher';
+// import { PaletteSwitcher } from './PaletteSwitcher'; // palette locked to Forest & Teal; uncomment to re-enable switcher
 import logoImg from '@/assets/uncle-voo-logo.png';
 import { analytics } from '@/app/lib/analytics';
 
@@ -67,9 +67,6 @@ export function Header() {
 
           {/* Desktop Right Section */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* Palette Switcher (remove after customer picks) */}
-            <PaletteSwitcher />
-
             {/* Language Toggle */}
             <div className="flex items-center bg-[var(--cream)] rounded-full p-1">
               {languageOptions.map((opt) => (
@@ -102,9 +99,6 @@ export function Header() {
 
           {/* Mobile Right Section */}
           <div className="flex items-center gap-2 lg:hidden">
-            {/* Palette Switcher (mobile) */}
-            <PaletteSwitcher />
-
             {/* Mobile Language Toggle */}
             <div className="flex items-center bg-[var(--cream)] rounded-full p-0.5">
               {languageOptions.map((opt) => (

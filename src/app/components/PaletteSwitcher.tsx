@@ -1,3 +1,11 @@
+/**
+ * PaletteSwitcher — palette picker for customer preview.
+ * Currently hidden from the UI. Active palette is baked into src/styles/theme.css (Forest & Teal).
+ *
+ * To re-enable the live switcher:
+ *   1. Uncomment the import in Header.tsx
+ *   2. Add <PaletteSwitcher /> back in both desktop and mobile right sections
+ */
 import { useState, useEffect } from 'react';
 
 interface Palette {
