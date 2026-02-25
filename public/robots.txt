@@ -1,9 +1,7 @@
 User-agent: *
 Allow: /
 
-# Block access to source maps and build artifacts
 Disallow: /src/
 Disallow: /*.map$
 
-# Sitemap location
-Sitemap: https://unclevoofarm.com/sitemap.xml
+Sitemap: https://unclevoosfarm.github.io/sitemap.xml
