@@ -1,46 +1,24 @@
 {
   "tours": [
     {
-      "id": "morning-farm-walk",
-      "title": { "en": "Morning Farm Walk", "my": "Jalan Pagi di Ladang", "zh": "早晨农场漫步" },
-      "price": "RM 35",
-      "duration": "1.5 hours",
-      "description": { "en": "Start your day with a peaceful walk through the farm. Visit the vegetable gardens, fruit orchards, and enjoy the fresh morning air.", "my": "Mulakan hari anda dengan jalan santai di ladang. Lawati taman sayur-sayuran, dusun buah-buahan, dan nikmati udara pagi yang segar.", "zh": "以宁静的农场漫步开启新的一天，参观菜园、果园，享受清晨的新鲜空气。" },
+      "id": "farm-discovery-tour",
+      "title": { "en": "Farm Discovery Tour", "my": "Lawatan Penemuan Ladang", "zh": "农场探索之旅" },
+      "price": "",
+      "duration": { "en": "~2 hours", "my": "~2 jam", "zh": "约2小时" },
+      "description": {
+        "en": "Step into Uncle Voo's living farm and discover the rhythms of rural life. Watch and interact with our friendly animals — goats, Muscovy ducks, rabbits, and more — then take a guided walk through lush tropical greenery, fruit trees, and vegetable plots. A refreshing, hands-on escape for the whole family.",
+        "my": "Masuki ladang hidup Pak Voo dan temui irama kehidupan desa. Tonton dan berinteraksi dengan haiwan kami yang mesra — kambing, itik serati, arnab, dan lain-lain — kemudian ikuti jalan berpandu melalui kehijauan tropika yang subur, pokok buah-buahan, dan petak sayur-sayuran. Pengalaman menyegarkan dan praktikal untuk seluruh keluarga.",
+        "zh": "踏入伍叔叔的生态农场，感受乡村生活的节奏。与我们友善的动物——山羊、番鸭、兔子等互动，然后在向导带领下漫步穿越郁郁葱葱的热带绿地、果树和菜圃。全家大小的清新亲身体验。"
+      },
       "features": [
-        { "en": "Up to 10 guests", "my": "Sehingga 10 tetamu", "zh": "最多10位客人" },
-        { "en": "Light refreshments", "my": "Minuman ringan", "zh": "轻食茶点" },
+        { "en": "Animal watching & interaction", "my": "Pemerhatian & interaksi haiwan", "zh": "观赏动物与互动" },
+        { "en": "Guided nature walk", "my": "Jalan alam semula jadi berpandu", "zh": "有向导的自然漫步" },
+        { "en": "Fruit tree & veggie garden tour", "my": "Lawatan pokok buah & taman sayur", "zh": "果树与菜园参观" },
+        { "en": "Family & kid-friendly", "my": "Sesuai untuk keluarga & kanak-kanak", "zh": "适合全家及儿童" },
         { "en": "Photo opportunities", "my": "Peluang bergambar", "zh": "拍照机会" }
       ],
       "image": "https://images.unsplash.com/photo-1500076656116-558758c991c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       "badge": ""
-    },
-    {
-      "id": "harvest-experience",
-      "title": { "en": "Harvest Experience", "my": "Pengalaman Menuai", "zh": "采摘体验" },
-      "price": "RM 65",
-      "duration": "2.5 hours",
-      "description": { "en": "Get your hands dirty! Pick your own fruits and vegetables straight from the field, and learn organic farming techniques from Uncle Voo himself.", "my": "Kotor tangan anda! Petik buah-buahan dan sayur-sayuran sendiri terus dari ladang, dan pelajari teknik pertanian organik daripada Pak Voo sendiri.", "zh": "亲身体验！直接从田间采摘水果和蔬菜，跟着伍叔叔学习有机农耕技术。" },
-      "features": [
-        { "en": "Up to 8 guests", "my": "Sehingga 8 tetamu", "zh": "最多8位客人" },
-        { "en": "Take home your harvest", "my": "Bawa pulang hasil tuaian anda", "zh": "带走您的收获" },
-        { "en": "Farming techniques", "my": "Teknik pertanian", "zh": "农耕技术" }
-      ],
-      "image": "https://images.unsplash.com/photo-1574943320219-553eb213f72d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "badge": "Most Popular"
-    },
-    {
-      "id": "animal-feeding-adventure",
-      "title": { "en": "Animal Feeding Adventure", "my": "Pengembaraan Memberi Makan Haiwan", "zh": "动物喂食探险" },
-      "price": "RM 45",
-      "duration": "2 hours",
-      "description": { "en": "Meet our friendly farm animals! Feed the goats, collect eggs from the chicken coop, and learn about sustainable animal care.", "my": "Temui haiwan ladang kami yang mesra! Beri makan kambing, kutip telur dari reban ayam, dan pelajari penjagaan haiwan yang lestari.", "zh": "认识我们友善的农场动物！喂山羊、收集鸡蛋，学习可持续动物护理。" },
-      "features": [
-        { "en": "Up to 12 guests", "my": "Sehingga 12 tetamu", "zh": "最多12位客人" },
-        { "en": "Kid-friendly", "my": "Sesuai untuk kanak-kanak", "zh": "适合儿童" },
-        { "en": "Includes farm snacks", "my": "Termasuk snek ladang", "zh": "包含农场小吃" }
-      ],
-      "image": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      "badge": "Family Favorite"
     }
   ]
 }
