@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Clock, ZoomIn, MessageCircle } from 'lucide-react';
 import { Lightbox } from './Lightbox';
 import toursData from '@/content/tours.json';
+import { analytics } from '@/app/lib/analytics';
 
 function CheckCircle() {
   return (
@@ -135,6 +136,7 @@ function TourCard({
           )}`}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => analytics.whatsappClick('tour', title)}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className="w-full flex items-center justify-center gap-2 py-3 bg-[var(--cta)] hover:bg-[var(--cta-dark)] text-white rounded-3xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"

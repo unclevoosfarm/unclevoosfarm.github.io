@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import heroData from '@/content/hero.json';
 import { useLanguage } from './LanguageContext';
+import { analytics } from '@/app/lib/analytics';
 
 type Lang = 'en' | 'my' | 'zh';
 const loc = <T extends Record<Lang, string>>(field: T, lang: string): string =>
@@ -195,6 +196,7 @@ export function Hero() {
               {/* CTA button */}
               <motion.a
                 href={slide.ctaHref}
+                onClick={() => analytics.heroCTAClick(slide.id, loc(slide.ctaLabel, language), slide.ctaHref)}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[var(--olive-dark)] shadow-lg transition-colors hover:bg-[var(--cta)] hover:text-white"

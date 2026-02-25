@@ -1,5 +1,6 @@
 import { useLanguage } from './LanguageContext';
 import { MessageCircle, ZoomIn, Filter } from 'lucide-react';
+import { analytics } from '@/app/lib/analytics';
 
 type Lang = 'en' | 'my' | 'zh';
 const loc = <T extends Record<Lang, string>>(field: T, lang: string): string =>
@@ -177,7 +178,7 @@ export function HarvestProducts() {
           <div className="flex flex-wrap justify-center gap-3 bg-white p-2 rounded-full shadow-sm border border-gray-100">
             {/* "All" tab */}
             <button
-              onClick={() => setActiveCategory(null)}
+              onClick={() => { analytics.productFilter('all'); setActiveCategory(null); }}
               className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === null
                   ? 'bg-[var(--primary)] text-white shadow-md'
                   : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
@@ -190,7 +191,7 @@ export function HarvestProducts() {
             {[...categoryMap.entries()].map(([key, labelObj]) => (
               <button
                 key={key}
-                onClick={() => setActiveCategory(key)}
+                onClick={() => { analytics.productFilter(key); setActiveCategory(key); }}
                 className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === key
                     ? 'bg-[var(--primary)] text-white shadow-md'
                     : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'

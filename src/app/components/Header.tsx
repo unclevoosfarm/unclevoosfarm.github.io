@@ -4,6 +4,7 @@ import { useLanguage, type Language } from './LanguageContext';
 import { motion } from 'motion/react';
 import { PaletteSwitcher } from './PaletteSwitcher';
 import logoImg from '@/assets/uncle-voo-logo.png';
+import { analytics } from '@/app/lib/analytics';
 
 const languageOptions: { code: Language; label: string }[] = [
   { code: 'en', label: 'EN' },
@@ -54,6 +55,7 @@ export function Header() {
               <motion.a
                 key={item.href}
                 href={item.href}
+                onClick={() => analytics.navClick(item.label, item.href)}
                 className="text-[var(--olive-medium)] hover:text-[var(--primary)] transition-colors font-medium relative"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -74,7 +76,7 @@ export function Header() {
                 <motion.button
                   key={opt.code}
                   whileTap={{ scale: 0.9 }}
-                  onClick={() => setLanguage(opt.code)}
+                  onClick={() => { analytics.languageChange(language, opt.code); setLanguage(opt.code); }}
                   className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
                     language === opt.code
                       ? 'bg-white shadow-sm text-[var(--olive-dark)]'
@@ -108,7 +110,7 @@ export function Header() {
               {languageOptions.map((opt) => (
                 <button
                   key={opt.code}
-                  onClick={() => setLanguage(opt.code)}
+                  onClick={() => { analytics.languageChange(language, opt.code); setLanguage(opt.code); }}
                   className={`px-2 py-1 rounded-full text-[10px] font-semibold transition-all ${
                     language === opt.code
                       ? 'bg-white shadow-sm text-[var(--olive-dark)]'
@@ -148,7 +150,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => { analytics.navClick(item.label, item.href); setMobileMenuOpen(false); }}
                 className="block py-2.5 text-[var(--olive-dark)] hover:text-[var(--primary)] hover:bg-[var(--cream)] rounded-xl px-4 transition-colors font-medium"
               >
                 {item.label}

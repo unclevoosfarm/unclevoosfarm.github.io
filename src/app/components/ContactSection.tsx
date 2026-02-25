@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
 import contactData from '@/content/contact.json';
+import { analytics } from '@/app/lib/analytics';
 
 type Lang = 'en' | 'my' | 'zh';
 const loc = <T extends Record<Lang, string>>(field: T, lang: string): string =>
@@ -64,9 +65,9 @@ export function ContactSection() {
   }, []);
 
   const socialLinks = [
-    { icon: Facebook, href: contactData.facebook || '#', label: "Uncle Voo's Farm on Facebook" },
-    { icon: Instagram, href: contactData.instagram || '#', label: "Uncle Voo's Farm on Instagram" },
-    ...(contactData.twitter ? [{ icon: Twitter, href: contactData.twitter, label: "Uncle Voo's Farm on Twitter" }] : []),
+    { icon: Facebook, href: contactData.facebook || '#', label: "Uncle Voo's Farm on Facebook", platform: 'facebook' },
+    { icon: Instagram, href: contactData.instagram || '#', label: "Uncle Voo's Farm on Instagram", platform: 'instagram' },
+    ...(contactData.twitter ? [{ icon: Twitter, href: contactData.twitter, label: "Uncle Voo's Farm on Twitter", platform: 'twitter' }] : []),
   ];
 
   return (
@@ -127,6 +128,7 @@ export function ContactSection() {
               {/* Submit */}
               <motion.button
                 type="submit"
+                onClick={() => analytics.contactFormSubmit()}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="w-full bg-[var(--cta)] hover:bg-[var(--cta-dark)] text-white py-4 rounded-3xl font-semibold shadow-lg hover:shadow-xl transition-all"
@@ -167,14 +169,14 @@ export function ContactSection() {
 
                 <div className="flex items-center gap-4">
                   <PhoneIcon />
-                  <a href={`tel:${contactData.phone}`} className="text-white/90 text-sm hover:text-white transition-colors">
+                  <a href={`tel:${contactData.phone}`} onClick={() => analytics.contactInfoClick('phone', contactData.phone)} className="text-white/90 text-sm hover:text-white transition-colors">
                     {contactData.phone}
                   </a>
                 </div>
 
                 <div className="flex items-center gap-4">
                   <EmailIcon />
-                  <a href={`mailto:${contactData.email}`} className="text-white/90 text-sm hover:text-white transition-colors">
+                  <a href={`mailto:${contactData.email}`} onClick={() => analytics.contactInfoClick('email', contactData.email)} className="text-white/90 text-sm hover:text-white transition-colors">
                     {contactData.email}
                   </a>
                 </div>
@@ -190,6 +192,7 @@ export function ContactSection() {
                   aria-label={social.label}
                   rel="noopener noreferrer"
                   target="_blank"
+                  onClick={() => analytics.socialClick(social.platform)}
                   style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
                   whileHover={{ scale: 1.15, rotate: 5, backgroundColor: "rgba(255, 255, 255, 0.3)" }}
                   whileTap={{ scale: 0.9 }}

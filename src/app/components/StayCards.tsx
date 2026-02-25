@@ -6,6 +6,7 @@ const loc = <T extends Record<Lang, string>>(field: T, lang: string): string =>
   field[(lang as Lang)] ?? field.en;
 import { useEffect, useState } from 'react';
 import stayData from '@/content/stay.json';
+import { analytics } from '@/app/lib/analytics';
 import { Lightbox } from './Lightbox';
 import {
   ZoomIn,
@@ -132,6 +133,7 @@ function StayDetailModal({ stay, language, onClose }: {
                 href={stay.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => analytics.whatsappClick('stay', loc(stay.name, language))}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex items-center justify-center gap-2 w-full py-4 bg-[var(--cta)] hover:bg-[var(--cta-dark)] text-white rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all"
@@ -230,6 +232,7 @@ function StayGridCard({ stay, language, onOpenDetail, onImageClick }: {
             href={stay.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => analytics.whatsappClick('stay', loc(stay.name, language))}
             className="w-full flex items-center justify-center gap-2 py-3 bg-[var(--cta)] hover:bg-[var(--cta-dark)] text-white rounded-3xl transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             <MessageCircle className="w-5 h-5" />
@@ -321,6 +324,7 @@ function StaySingleCard({ stay, language, onImageClick }: {
             href={stay.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => analytics.whatsappClick('stay', loc(stay.name, language))}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="flex items-center justify-center gap-2 w-full py-4 bg-[var(--cta)] hover:bg-[var(--cta-dark)] text-white rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all"
@@ -374,7 +378,7 @@ export function StayCards() {
                   key={stay.id}
                   stay={stay}
                   language={language}
-                  onOpenDetail={setSelectedStay}
+                  onOpenDetail={(s) => { analytics.stayDetailView(loc(s.name, language)); setSelectedStay(s); }}
                   onImageClick={setLightboxImage}
                 />
               ))}
