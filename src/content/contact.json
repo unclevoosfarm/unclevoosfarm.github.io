@@ -1,5 +1,9 @@
 {
-  "address": { "en": "Jln Wing Sang, \n90000 Sandakan, Sabah", "my": "Jln Wing Sang, \n90000 Sandakan, Sabah", "zh": "Wing Sang路，\n90000 山打根，沙巴" },
+  "address": {
+    "en": "Jln Wing Sang, \n90000 Sandakan, Sabah",
+    "my": "Jln Wing Sang, \n90000 Sandakan, Sabah",
+    "zh": "Wing Sang路，\n90000 山打根，沙巴"
+  },
   "phone": "+6016-805 1021",
   "email": "unclevoosfarm@proton.me",
   "whatsappNumber": "+6016-805 1021",
@@ -7,5 +11,5 @@
   "facebook": "https://www.facebook.com/UncleVooFarm/",
   "instagram": "",
   "twitter": "",
-  "formspreeEndpoint": ""
+  "formspreeEndpoint": "https://formspree.io/f/mgolrpqy"
 }
