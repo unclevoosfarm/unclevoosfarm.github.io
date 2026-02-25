@@ -65,10 +65,10 @@ export function ContactSection() {
   }, []);
 
   const socialLinks = [
-    { icon: Facebook, href: contactData.facebook || '#', label: "Uncle Voo's Farm on Facebook", platform: 'facebook' },
-    { icon: Instagram, href: contactData.instagram || '#', label: "Uncle Voo's Farm on Instagram", platform: 'instagram' },
-    ...(contactData.twitter ? [{ icon: Twitter, href: contactData.twitter, label: "Uncle Voo's Farm on Twitter", platform: 'twitter' }] : []),
-  ];
+    { icon: Facebook, href: contactData.facebook, label: "Uncle Voo's Farm on Facebook", platform: 'facebook' },
+    { icon: Instagram, href: contactData.instagram, label: "Uncle Voo's Farm on Instagram", platform: 'instagram' },
+    { icon: Twitter, href: contactData.twitter, label: "Uncle Voo's Farm on Twitter", platform: 'twitter' },
+  ].filter(s => s.href && s.href.trim() !== '');
 
   return (
     <section ref={sectionRef} id="contact" aria-label="Contact Uncle Voo's Farm – Book a Stay or Ask Us Anything" className="py-16 lg:py-20 bg-[var(--background)] relative">
