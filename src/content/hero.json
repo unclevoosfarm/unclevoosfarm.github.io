@@ -9,8 +9,8 @@
       "description": { "en": "Escape to our cozy cabins nestled among lush greenery. Wake up to birdsong, sip fresh coffee on the porch, and let the tranquility of the farm restore your spirit.", "my": "Melarikan diri ke kabin kami yang selesa di tengah-tengah kehijauan. Bangun dengan kicauan burung, minum kopi segar di beranda, dan biarkan ketenangan ladang memulihkan semangat anda.", "zh": "逃离喧嚣，入住郁郁葱葱中的温馨小屋。聆听鸟鸣声醒来，在门廊品一杯新鲜咖啡，让农场的宁静恢复您的活力。" },
       "ctaLabel": { "en": "Rest & Recharge", "my": "Rehat & Pulihkan Tenaga", "zh": "休息充电" },
       "ctaHref": "#stay",
-      "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDIOj-Qstr6LNcXG4r8MsyE6jZyxBpmE7pHJJ-08BQg7oP7chvO9Z2CYdlm5pX709vAcxJTMMSfsKFjSWtq0q1fe2p5dfnnn4yABebjp4QWcdqLH3bZnHMrJ1pxrAfsX2gqK3WfxrQ30hE_4uJvz_Fq3Cnb30_KBa_AgSTQ_W7yISvCamExHejK7cZeouTBDL2829smMO5Dv9Unlhbl13AAOgCYEIeyRJRqtvJAwFrGj0IMOY59NvnsdTvvQVBsFKEenh1JDSKs_Ixo",
-      "imageAlt": "Cozy farmhouse cabin surrounded by lush tropical greenery at Uncle Voo's Farm"
+      "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1280",
+      "imageAlt": "Peaceful tropical farmhouse nestled in lush green nature — Uncle Voo's Farm stay in Sandakan, Sabah"
     },
     {
       "id": "produce",

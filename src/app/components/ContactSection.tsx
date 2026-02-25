@@ -2,7 +2,7 @@ import { useLanguage } from './LanguageContext';
 import svgPaths from '../../imports/svg-3ykeeib9ga';
 import { motion } from 'motion/react';
 import { useEffect, useRef, useState } from 'react';
-import { Facebook, Instagram, Twitter } from 'lucide-react';
+import { Facebook, Instagram, Twitter, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import contactData from '@/content/contact.json';
 import { analytics } from '@/app/lib/analytics';
 
@@ -41,7 +41,31 @@ function EmailIcon() {
 export function ContactSection() {
   const { t, language } = useLanguage();
   const [isInView, setIsInView] = useState(false);
+  const [formState, setFormState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const sectionRef = useRef<HTMLElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const endpoint = contactData.formspreeEndpoint;
+    if (!endpoint) return; // no endpoint configured yet
+    setFormState('loading');
+    try {
+      const form = e.currentTarget;
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        analytics.contactFormSubmit();
+        setFormState('success');
+      } else {
+        setFormState('error');
+      }
+    } catch {
+      setFormState('error');
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,59 +107,91 @@ export function ContactSection() {
           <div className="flex-1 p-8 md:p-10">
             <h2 id="contact-heading" className="text-[var(--foreground)] text-3xl mb-6">{t('contactTitle')}</h2>
 
-            <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
-              {/* Name */}
-              <div className="flex flex-col gap-1">
-                <label htmlFor="contact-name" className="text-gray-700 text-sm font-medium">
-                  {t('contactName')}
-                </label>
-                <input
-                  id="contact-name"
-                  type="text"
-                  placeholder={t('contactNamePlaceholder')}
-                  autoComplete="name"
-                  className="bg-white border border-gray-300 rounded-3xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] transition-colors"
-                />
-              </div>
-
-              {/* Email */}
-              <div className="flex flex-col gap-1">
-                <label htmlFor="contact-email" className="text-gray-700 text-sm font-medium">
-                  {t('contactEmail')}
-                </label>
-                <input
-                  id="contact-email"
-                  type="email"
-                  placeholder={t('contactEmailPlaceholder')}
-                  autoComplete="email"
-                  className="bg-white border border-gray-300 rounded-3xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] transition-colors"
-                />
-              </div>
-
-              {/* Message */}
-              <div className="flex flex-col gap-1">
-                <label htmlFor="contact-message" className="text-gray-700 text-sm font-medium">
-                  {t('contactMessage')}
-                </label>
-                <textarea
-                  id="contact-message"
-                  placeholder={t('contactMessagePlaceholder')}
-                  rows={4}
-                  className="bg-white border border-gray-300 rounded-3xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] transition-colors resize-none"
-                />
-              </div>
-
-              {/* Submit */}
-              <motion.button
-                type="submit"
-                onClick={() => analytics.contactFormSubmit()}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-[var(--cta)] hover:bg-[var(--cta-dark)] text-white py-4 rounded-3xl font-semibold shadow-lg hover:shadow-xl transition-all"
+            {formState === 'success' ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="flex flex-col items-center justify-center gap-4 py-12 text-center"
               >
-                {t('contactSend')}
-              </motion.button>
-            </form>
+                <CheckCircle className="w-14 h-14 text-green-500" />
+                <h3 className="text-xl font-semibold text-[var(--foreground)]">{t('contactSuccessTitle')}</h3>
+                <p className="text-gray-600">{t('contactSuccessDesc')}</p>
+                <button
+                  onClick={() => setFormState('idle')}
+                  className="mt-2 text-sm text-[var(--primary)] underline underline-offset-2"
+                >
+                  {t('contactSendAnother')}
+                </button>
+              </motion.div>
+            ) : (
+              <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+                {/* Name */}
+                <div className="flex flex-col gap-1">
+                  <label htmlFor="contact-name" className="text-gray-700 text-sm font-medium">
+                    {t('contactName')}
+                  </label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    required
+                    placeholder={t('contactNamePlaceholder')}
+                    autoComplete="name"
+                    className="bg-white border border-gray-300 rounded-3xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] transition-colors"
+                  />
+                </div>
+
+                {/* Email */}
+                <div className="flex flex-col gap-1">
+                  <label htmlFor="contact-email" className="text-gray-700 text-sm font-medium">
+                    {t('contactEmail')}
+                  </label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder={t('contactEmailPlaceholder')}
+                    autoComplete="email"
+                    className="bg-white border border-gray-300 rounded-3xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] transition-colors"
+                  />
+                </div>
+
+                {/* Message */}
+                <div className="flex flex-col gap-1">
+                  <label htmlFor="contact-message" className="text-gray-700 text-sm font-medium">
+                    {t('contactMessage')}
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    required
+                    placeholder={t('contactMessagePlaceholder')}
+                    rows={4}
+                    className="bg-white border border-gray-300 rounded-3xl px-5 py-3.5 text-gray-900 placeholder:text-gray-400 outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] transition-colors resize-none"
+                  />
+                </div>
+
+                {formState === 'error' && (
+                  <div className="flex items-center gap-2 text-red-600 text-sm">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>{t('contactErrorDesc')}</span>
+                  </div>
+                )}
+
+                {/* Submit */}
+                <motion.button
+                  type="submit"
+                  disabled={formState === 'loading'}
+                  whileHover={{ scale: formState === 'loading' ? 1 : 1.02 }}
+                  whileTap={{ scale: formState === 'loading' ? 1 : 0.98 }}
+                  className="w-full flex items-center justify-center gap-2 bg-[var(--cta)] hover:bg-[var(--cta-dark)] disabled:opacity-70 text-white py-4 rounded-3xl font-semibold shadow-lg hover:shadow-xl transition-all"
+                >
+                  {formState === 'loading' && <Loader2 className="w-4 h-4 animate-spin" />}
+                  {t('contactSend')}
+                </motion.button>
+              </form>
+            )}
           </div>
 
           {/* Dark Olive Info Side */}

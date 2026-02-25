@@ -9,6 +9,7 @@ import { FarmTours } from './components/FarmTours';
 import { Testimonials } from './components/Testimonials';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { WhatsAppButton } from './components/WhatsAppButton';
 
 export default function App() {
   return (
@@ -46,6 +47,9 @@ export default function App() {
 
         {/* Footer */}
         <Footer />
+
+        {/* WhatsApp floating button */}
+        <WhatsAppButton />
       </div>
     </LanguageProvider>
   );

@@ -219,8 +219,14 @@ collections:
                   - { name: en, label: "English", widget: string }
                   - { name: my, label: "Malay (BM)", widget: string }
                   - { name: zh, label: "Chinese (中文)", widget: string }
-              - { name: price, label: Price, widget: string }
-              - { name: duration, label: Duration, widget: string }
+              - { name: price, label: "Price (leave blank to hide)", widget: string, required: false }
+              - name: duration
+                label: Duration
+                widget: object
+                fields:
+                  - { name: en, label: "English", widget: string }
+                  - { name: my, label: "Malay (BM)", widget: string }
+                  - { name: zh, label: "Chinese (中文)", widget: string }
               - name: description
                 label: Description
                 widget: object
@@ -291,3 +297,8 @@ collections:
           - { name: facebook, label: Facebook URL, widget: string, required: false }
           - { name: instagram, label: Instagram URL, widget: string, required: false }
           - { name: twitter, label: Twitter / X URL, widget: string, required: false }
+          - name: formspreeEndpoint
+            label: "Contact Form Endpoint (Formspree)"
+            widget: string
+            required: false
+            hint: "Create a free form at formspree.io and paste the endpoint URL here (e.g. https://formspree.io/f/xxxxx)"
