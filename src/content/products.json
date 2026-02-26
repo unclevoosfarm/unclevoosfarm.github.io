@@ -2,169 +2,337 @@
   "products": [
     {
       "id": "goat",
-      "name": { "en": "Goat", "my": "Kambing", "zh": "山羊" },
+      "name": {
+        "en": "Goat",
+        "my": "Kambing",
+        "zh": "山羊"
+      },
       "price": "RM 1,300 – 1,800",
       "unit": "/head",
-      "description": { "en": "Healthy farm-raised goats available for purchase. Price varies by size and weight. Contact us for current availability.", "my": "Kambing ternakan sihat tersedia untuk dijual. Harga berbeza mengikut saiz dan berat. Hubungi kami untuk ketersediaan terkini.", "zh": "健康的农场饲养山羊，价格因体型和重量而异。请联系我们了解最新供应情况。" },
+      "description": {
+        "en": "Healthy farm-raised goats available for purchase. Price varies by size and weight. Contact us for current availability.",
+        "my": "Kambing ternakan sihat tersedia untuk dijual. Harga berbeza mengikut saiz dan berat. Hubungi kami untuk ketersediaan terkini.",
+        "zh": "健康的农场饲养山羊，价格因体型和重量而异。请联系我们了解最新供应情况。"
+      },
       "image": "https://images.unsplash.com/photo-1524024973431-2ad916746881?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       "bgColor": "#F5F5F0",
-      "category": { "en": "Farm Animals", "my": "Haiwan Ladang", "zh": "农场动物" },
+      "category": {
+        "en": "Farm Animals",
+        "my": "Haiwan Ladang",
+        "zh": "农场动物"
+      },
       "badge": "",
       "badgeType": ""
     },
     {
       "id": "muscovy-duck",
-      "name": { "en": "Muscovy Duck", "my": "Itik Serati", "zh": "番鸭" },
+      "name": {
+        "en": "Muscovy Duck",
+        "my": "Itik Serati",
+        "zh": "番鸭"
+      },
       "price": "RM 35",
       "unit": "/kg",
-      "description": { "en": "Farm-raised Muscovy ducks, known for their lean and flavourful meat. Sold by weight.", "my": "Itik serati ternakan ladang, terkenal dengan daging yang rendah lemak dan lazat. Dijual mengikut berat.", "zh": "农场饲养番鸭，以其瘦肉和鲜美风味著称，按重量出售。" },
+      "description": {
+        "en": "Farm-raised Muscovy ducks, known for their lean and flavourful meat. Sold by weight.",
+        "my": "Itik serati ternakan ladang, terkenal dengan daging yang rendah lemak dan lazat. Dijual mengikut berat.",
+        "zh": "农场饲养番鸭，以其瘦肉和鲜美风味著称，按重量出售。"
+      },
       "image": "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       "bgColor": "#EFF6FF",
-      "category": { "en": "Farm Animals", "my": "Haiwan Ladang", "zh": "农场动物" },
+      "category": {
+        "en": "Farm Animals",
+        "my": "Haiwan Ladang",
+        "zh": "农场动物"
+      },
       "badge": "",
       "badgeType": ""
     },
     {
       "id": "rabbit",
-      "name": { "en": "Rabbit", "my": "Arnab", "zh": "兔子" },
+      "name": {
+        "en": "Rabbit",
+        "my": "Arnab",
+        "zh": "兔子"
+      },
       "price": "RM 20",
       "unit": "/pc",
-      "description": { "en": "Cute and healthy farm rabbits. Great as pets or for rearing. Limited stock available.", "my": "Arnab ladang yang comel dan sihat. Sesuai sebagai haiwan peliharaan atau untuk ternakan. Stok terhad.", "zh": "可爱健康的农场兔子，适合作为宠物或养殖。库存有限。" },
+      "description": {
+        "en": "Cute and healthy farm rabbits. Great as pets or for rearing. Limited stock available.",
+        "my": "Arnab ladang yang comel dan sihat. Sesuai sebagai haiwan peliharaan atau untuk ternakan. Stok terhad.",
+        "zh": "可爱健康的农场兔子，适合作为宠物或养殖。库存有限。"
+      },
       "image": "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       "bgColor": "#FDF4FF",
-      "category": { "en": "Farm Animals", "my": "Haiwan Ladang", "zh": "农场动物" },
+      "category": {
+        "en": "Farm Animals",
+        "my": "Haiwan Ladang",
+        "zh": "农场动物"
+      },
       "badge": "",
       "badgeType": ""
     },
     {
       "id": "duck-egg",
-      "name": { "en": "Duck Egg", "my": "Telur Itik", "zh": "鸭蛋" },
+      "name": {
+        "en": "Duck Egg",
+        "my": "Telur Itik",
+        "zh": "鸭蛋"
+      },
       "price": "",
       "unit": "",
-      "description": { "en": "Fresh duck eggs from our free-range ducks. Rich and nutritious. Ask us for today's price and availability.", "my": "Telur itik segar daripada itik lepas bebas kami. Kaya dan berkhasiat. Tanya kami untuk harga dan ketersediaan hari ini.", "zh": "来自我们放养鸭子的新鲜鸭蛋，营养丰富。请询问当日价格及供应情况。" },
+      "description": {
+        "en": "Fresh duck eggs from our free-range ducks. Rich and nutritious. Ask us for today's price and availability.",
+        "my": "Telur itik segar daripada itik lepas bebas kami. Kaya dan berkhasiat. Tanya kami untuk harga dan ketersediaan hari ini.",
+        "zh": "来自我们放养鸭子的新鲜鸭蛋，营养丰富。请询问当日价格及供应情况。"
+      },
       "image": "https://images.unsplash.com/photo-1569127959161-2b1297b2d9a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       "bgColor": "#FFFBEB",
-      "category": { "en": "Farm Animals", "my": "Haiwan Ladang", "zh": "农场动物" },
+      "category": {
+        "en": "Farm Animals",
+        "my": "Haiwan Ladang",
+        "zh": "农场动物"
+      },
       "badge": "Ask for Price",
       "badgeType": "season"
     },
     {
       "id": "cat",
-      "name": { "en": "Farm Cat", "my": "Kucing Ladang", "zh": "农场猫咪" },
+      "name": {
+        "en": "Farm Cat",
+        "my": "Kucing Ladang",
+        "zh": "农场猫咪"
+      },
       "price": "",
       "unit": "",
-      "description": { "en": "Meet our friendly resident farm cats! These adorable furry friends roam the farm freely. For viewing and petting only — not for sale.", "my": "Kenali kucing ladang kami yang mesra! Teman berbulu yang comel ini berkeliaran bebas di ladang. Untuk tontonan dan belaian sahaja — tidak dijual.", "zh": "来认识我们友善的农场猫咪！这些可爱的毛茸茸朋友在农场自由漫步。仅供观赏和抚摸——不出售。" },
+      "description": {
+        "en": "Meet our friendly resident farm cats! These adorable furry friends roam the farm freely. For viewing and petting only — not for sale.",
+        "my": "Kenali kucing ladang kami yang mesra! Teman berbulu yang comel ini berkeliaran bebas di ladang. Untuk tontonan dan belaian sahaja — tidak dijual.",
+        "zh": "来认识我们友善的农场猫咪！这些可爱的毛茸茸朋友在农场自由漫步。仅供观赏和抚摸——不出售。"
+      },
       "image": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       "bgColor": "#FFF1F2",
-      "category": { "en": "Farm Animals", "my": "Haiwan Ladang", "zh": "农场动物" },
+      "category": {
+        "en": "Farm Animals",
+        "my": "Haiwan Ladang",
+        "zh": "农场动物"
+      },
       "badge": "View Only",
       "badgeType": "season"
     },
     {
       "id": "duku-langsat",
-      "name": { "en": "Duku Langsat", "my": "Duku Langsat", "zh": "兰撒果" },
+      "name": {
+        "en": "Duku Langsat",
+        "my": "Duku Langsat",
+        "zh": "兰撒果"
+      },
       "price": "",
       "unit": "",
-      "description": { "en": "Sweet and tangy tropical fruit from our own trees. Available only during season — worth the wait!", "my": "Buah tropika yang manis dan masam dari pokok kami sendiri. Hanya tersedia semasa musim — berbaloi menunggu!", "zh": "来自我们果树的甜酸热带水果，仅在季节时供应——值得等待！" },
-      "image": "https://images.unsplash.com/photo-1567306301408-9b74779a11af?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "description": {
+        "en": "Sweet and tangy tropical fruit from our own trees. Available only during season — worth the wait!",
+        "my": "Buah tropika yang manis dan masam dari pokok kami sendiri. Hanya tersedia semasa musim — berbaloi menunggu!",
+        "zh": "来自我们果树的甜酸热带水果，仅在季节时供应——值得等待！"
+      },
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Paete%2CLagunajf6182_09.JPG/3840px-Paete%2CLagunajf6182_09.JPG",
       "bgColor": "#FEFCE8",
-      "category": { "en": "Farm Fruits", "my": "Buah-buahan Ladang", "zh": "农场水果" },
+      "category": {
+        "en": "Farm Fruits",
+        "my": "Buah-buahan Ladang",
+        "zh": "农场水果"
+      },
       "badge": "Seasonal",
       "badgeType": "season"
     },
     {
       "id": "rambutan",
-      "name": { "en": "Rambutan", "my": "Rambutan", "zh": "红毛丹" },
+      "name": {
+        "en": "Rambutan",
+        "my": "Rambutan",
+        "zh": "红毛丹"
+      },
       "price": "",
       "unit": "",
-      "description": { "en": "Freshly picked rambutan bursting with sweetness. Straight from Uncle Voo's trees, available in season.", "my": "Rambutan yang baru dipetik dengan kemanisan yang melimpah. Terus dari pokok Pak Voo, tersedia semasa musim.", "zh": "新鲜采摘的红毛丹，甜味十足。直接来自伍叔叔的果树，季节限定供应。" },
-      "image": "https://images.unsplash.com/photo-1597734405536-9ef680c7c661?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "description": {
+        "en": "Freshly picked rambutan bursting with sweetness. Straight from Uncle Voo's trees, available in season.",
+        "my": "Rambutan yang baru dipetik dengan kemanisan yang melimpah. Terus dari pokok Pak Voo, tersedia semasa musim.",
+        "zh": "新鲜采摘的红毛丹，甜味十足。直接来自伍叔叔的果树，季节限定供应。"
+      },
+      "image": "https://parade.com/.image/w_1920,q_auto:good,c_limit/MTkwNTc5NTIwNTYzNTIxNDA0/rambutan-ftr.jpg?arena_f_auto",
       "bgColor": "#FFF1F2",
-      "category": { "en": "Farm Fruits", "my": "Buah-buahan Ladang", "zh": "农场水果" },
+      "category": {
+        "en": "Farm Fruits",
+        "my": "Buah-buahan Ladang",
+        "zh": "农场水果"
+      },
       "badge": "Seasonal",
       "badgeType": "season"
     },
     {
       "id": "durian",
-      "name": { "en": "Durian", "my": "Durian", "zh": "榴莲" },
+      "name": {
+        "en": "Durian",
+        "my": "Durian",
+        "zh": "榴莲"
+      },
       "price": "",
       "unit": "",
-      "description": { "en": "The king of fruits, grown right here on the farm. Rich, creamy, and unforgettable. Available during durian season only.", "my": "Raja buah-buahan, ditanam di ladang ini sendiri. Kaya, berkrim, dan tidak terlupakan. Hanya tersedia semasa musim durian.", "zh": "水果之王，就种在这片农场上。浓郁、香滑、令人难忘。仅在榴莲季节供应。" },
-      "image": "https://images.unsplash.com/photo-1528825871115-3581a5387919?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "description": {
+        "en": "The king of fruits, grown right here on the farm. Rich, creamy, and unforgettable. Available during durian season only.",
+        "my": "Raja buah-buahan, ditanam di ladang ini sendiri. Kaya, berkrim, dan tidak terlupakan. Hanya tersedia semasa musim durian.",
+        "zh": "水果之王，就种在这片农场上。浓郁、香滑、令人难忘。仅在榴莲季节供应。"
+      },
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Durian.jpg/3840px-Durian.jpg",
       "bgColor": "#FEFCE8",
-      "category": { "en": "Farm Fruits", "my": "Buah-buahan Ladang", "zh": "农场水果" },
+      "category": {
+        "en": "Farm Fruits",
+        "my": "Buah-buahan Ladang",
+        "zh": "农场水果"
+      },
       "badge": "Seasonal",
       "badgeType": "season"
     },
     {
       "id": "vegetables",
-      "name": { "en": "Fresh Vegetables", "my": "Sayur-sayuran Segar", "zh": "新鲜蔬菜" },
+      "name": {
+        "en": "Fresh Vegetables",
+        "my": "Sayur-sayuran Segar",
+        "zh": "新鲜蔬菜"
+      },
       "price": "RM 8 – 24",
       "unit": "/bundle",
-      "description": { "en": "A variety of fresh vegetables grown on the farm. Price depends on type. Ask us what's available today.", "my": "Pelbagai sayur-sayuran segar yang ditanam di ladang. Harga bergantung kepada jenis. Tanya kami apa yang ada hari ini.", "zh": "农场种植的各类新鲜蔬菜，价格因品种而异。请询问今日供应品种。" },
+      "description": {
+        "en": "A variety of fresh vegetables grown on the farm. Price depends on type. Ask us what's available today.",
+        "my": "Pelbagai sayur-sayuran segar yang ditanam di ladang. Harga bergantung kepada jenis. Tanya kami apa yang ada hari ini.",
+        "zh": "农场种植的各类新鲜蔬菜，价格因品种而异。请询问今日供应品种。"
+      },
       "image": "https://images.unsplash.com/photo-1540420773420-3366772f4999?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       "bgColor": "#F0FDF4",
-      "category": { "en": "Farm Fruits", "my": "Buah-buahan Ladang", "zh": "农场水果" },
+      "category": {
+        "en": "Farm Fruits",
+        "my": "Buah-buahan Ladang",
+        "zh": "农场水果"
+      },
       "badge": "",
       "badgeType": ""
     },
     {
       "id": "salted-duck-egg",
-      "name": { "en": "Salted Duck Egg", "my": "Telur Itik Masin", "zh": "咸鸭蛋" },
+      "name": {
+        "en": "Salted Duck Egg",
+        "my": "Telur Itik Masin",
+        "zh": "咸鸭蛋"
+      },
       "price": "RM 45",
       "unit": "/tray",
-      "description": { "en": "Traditionally cured salted duck eggs with rich, golden yolks. A Malaysian classic. 30 eggs per tray.", "my": "Telur itik masin yang diawet secara tradisional dengan kuning telur yang kaya dan keemasan. Klasik Malaysia. 30 biji setiap dulang.", "zh": "传统腌制咸鸭蛋，蛋黄金黄丰腴，马来西亚经典美食，每托盘30个。" },
-      "image": "https://images.unsplash.com/photo-1617196034183-421b4040ed20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "description": {
+        "en": "Traditionally cured salted duck eggs with rich, golden yolks. A Malaysian classic. 30 eggs per tray.",
+        "my": "Telur itik masin yang diawet secara tradisional dengan kuning telur yang kaya dan keemasan. Klasik Malaysia. 30 biji setiap dulang.",
+        "zh": "传统腌制咸鸭蛋，蛋黄金黄丰腴，马来西亚经典美食，每托盘30个。"
+      },
+      "image": "/uploads/99809827_saltduckeggscutbaidu-865px(2).jpg.cf0a63120dce3dd0be30922a58d49f95.jpg",
       "bgColor": "#FFFBEB",
-      "category": { "en": "Farm Produce", "my": "Hasil Ladang", "zh": "农场产品" },
+      "category": {
+        "en": "Farm Produce",
+        "my": "Hasil Ladang",
+        "zh": "农场产品"
+      },
       "badge": "Best Seller",
       "badgeType": "best"
     },
     {
       "id": "unsalted-duck-egg",
-      "name": { "en": "Unsalted Duck Egg", "my": "Telur Itik Tawar", "zh": "鲜鸭蛋" },
+      "name": {
+        "en": "Unsalted Duck Egg",
+        "my": "Telur Itik Tawar",
+        "zh": "鲜鸭蛋"
+      },
       "price": "",
       "unit": "",
-      "description": { "en": "Fresh unsalted duck eggs from our free-range ducks. Great for cooking and baking. Ask us for today's price.", "my": "Telur itik tawar segar dari itik lepas bebas kami. Sesuai untuk memasak dan membakar. Tanya kami untuk harga hari ini.", "zh": "来自我们放养鸭子的新鲜无盐鸭蛋，适合烹饪和烘焙。请询问当日价格。" },
-      "image": "https://images.unsplash.com/photo-1569127959161-2b1297b2d9a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "description": {
+        "en": "Fresh unsalted duck eggs from our free-range ducks. Great for cooking and baking. Ask us for today's price.",
+        "my": "Telur itik tawar segar dari itik lepas bebas kami. Sesuai untuk memasak dan membakar. Tanya kami untuk harga hari ini.",
+        "zh": "来自我们放养鸭子的新鲜无盐鸭蛋，适合烹饪和烘焙。请询问当日价格。"
+      },
+      "image": "/uploads/Duck-Eggs.jpg",
       "bgColor": "#F0F9FF",
-      "category": { "en": "Farm Produce", "my": "Hasil Ladang", "zh": "农场产品" },
+      "category": {
+        "en": "Farm Produce",
+        "my": "Hasil Ladang",
+        "zh": "农场产品"
+      },
       "badge": "Ask for Price",
       "badgeType": "season"
     },
     {
       "id": "kampung-chicken-egg",
-      "name": { "en": "Kampung Chicken Egg", "my": "Telur Ayam Kampung", "zh": "甘榜鸡蛋" },
+      "name": {
+        "en": "Kampung Chicken Egg",
+        "my": "Telur Ayam Kampung",
+        "zh": "甘榜鸡蛋"
+      },
       "price": "RM 30",
       "unit": "/tray (30pcs)",
-      "description": { "en": "Free-range kampung chicken eggs collected fresh daily. Richer yolks and better taste than commercial eggs.", "my": "Telur ayam kampung lepas bebas yang dikutip segar setiap hari. Kuning telur lebih kaya dan rasa lebih baik daripada telur komersial.", "zh": "每日新鲜采集的放养甘榜鸡蛋，蛋黄更丰富，口感胜过商业鸡蛋。" },
+      "description": {
+        "en": "Free-range kampung chicken eggs collected fresh daily. Richer yolks and better taste than commercial eggs.",
+        "my": "Telur ayam kampung lepas bebas yang dikutip segar setiap hari. Kuning telur lebih kaya dan rasa lebih baik daripada telur komersial.",
+        "zh": "每日新鲜采集的放养甘榜鸡蛋，蛋黄更丰富，口感胜过商业鸡蛋。"
+      },
       "image": "https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       "bgColor": "#FFFBEB",
-      "category": { "en": "Farm Produce", "my": "Hasil Ladang", "zh": "农场产品" },
+      "category": {
+        "en": "Farm Produce",
+        "my": "Hasil Ladang",
+        "zh": "农场产品"
+      },
       "badge": "",
       "badgeType": ""
     },
     {
       "id": "duck-meat",
-      "name": { "en": "Duck Meat", "my": "Daging Itik", "zh": "鸭肉" },
+      "name": {
+        "en": "Duck Meat",
+        "my": "Daging Itik",
+        "zh": "鸭肉"
+      },
       "price": "RM 35",
       "unit": "/kg",
-      "description": { "en": "Fresh farm-raised duck meat, naturally lean and full of flavour. Freshly prepared upon order.", "my": "Daging itik segar ternakan ladang, semula jadi rendah lemak dan penuh rasa. Disediakan segar atas pesanan.", "zh": "新鲜农场饲养鸭肉，天然精瘦，风味十足，按订单新鲜处理。" },
+      "description": {
+        "en": "Fresh farm-raised duck meat, naturally lean and full of flavour. Freshly prepared upon order.",
+        "my": "Daging itik segar ternakan ladang, semula jadi rendah lemak dan penuh rasa. Disediakan segar atas pesanan.",
+        "zh": "新鲜农场饲养鸭肉，天然精瘦，风味十足，按订单新鲜处理。"
+      },
       "image": "https://images.unsplash.com/photo-1587593810167-a84920ea0781?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       "bgColor": "#FFF5F5",
-      "category": { "en": "Farm Produce", "my": "Hasil Ladang", "zh": "农场产品" },
+      "category": {
+        "en": "Farm Produce",
+        "my": "Hasil Ladang",
+        "zh": "农场产品"
+      },
       "badge": "",
       "badgeType": ""
     },
     {
       "id": "ayam-kampung",
-      "name": { "en": "Ayam Kampung", "my": "Ayam Kampung", "zh": "甘榜鸡" },
+      "name": {
+        "en": "Ayam Kampung",
+        "my": "Ayam Kampung",
+        "zh": "甘榜鸡"
+      },
       "price": "RM 34",
       "unit": "/kg",
-      "description": { "en": "Authentic free-range kampung chicken with firm texture and superior flavour. A true farm-to-table experience.", "my": "Ayam kampung lepas bebas tulen dengan tekstur yang padat dan rasa yang superior. Pengalaman ladang ke meja yang sebenar.", "zh": "正宗放养甘榜鸡，肉质紧实，风味卓越，真正的农场到餐桌体验。" },
+      "description": {
+        "en": "Authentic free-range kampung chicken with firm texture and superior flavour. A true farm-to-table experience.",
+        "my": "Ayam kampung lepas bebas tulen dengan tekstur yang padat dan rasa yang superior. Pengalaman ladang ke meja yang sebenar.",
+        "zh": "正宗放养甘榜鸡，肉质紧实，风味卓越，真正的农场到餐桌体验。"
+      },
       "image": "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       "bgColor": "#FFF9F0",
-      "category": { "en": "Farm Produce", "my": "Hasil Ladang", "zh": "农场产品" },
+      "category": {
+        "en": "Farm Produce",
+        "my": "Hasil Ladang",
+        "zh": "农场产品"
+      },
       "badge": "Best Seller",
       "badgeType": "best"
     }
