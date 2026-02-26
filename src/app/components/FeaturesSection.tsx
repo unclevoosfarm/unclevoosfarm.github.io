@@ -1,34 +1,12 @@
 import { motion } from 'motion/react';
 import { Leaf, ShieldCheck, Users, Truck } from 'lucide-react';
+import { useLanguage } from './LanguageContext';
 
 interface Feature {
   icon: React.ElementType;
   title: string;
   description: string;
 }
-
-const features: Feature[] = [
-  {
-    icon: Leaf,
-    title: 'Eco-Friendly',
-    description: 'Sustainable practices in everything we do.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Certified Organic',
-    description: '100% pesticide-free produce for your health.',
-  },
-  {
-    icon: Users,
-    title: 'Family Friendly',
-    description: 'Safe activities for visitors of all ages.',
-  },
-  {
-    icon: Truck,
-    title: 'Farm to Table',
-    description: 'Delivered fresh from our fields to your door.',
-  },
-];
 
 const images = [
   'https://lh3.googleusercontent.com/aida-public/AB6AXuB29_wJXZ79Jbd_3GHG_WRxMgD3Ei2i-euz9fI-rfaAxro7kpvLudMeyonhv9oDiS3pv1ScfxyAm-8_bUDbtCf88Fv-ZTyRfbEQigABTjWvkAO2O0HgGv_FuDssMa_htHYBGE30Ko8bpEyJF-rh6R9hSzSRo3heJEeET4pS9SLgQA7qXWP0j-pQQ-noAkEoAWgyWKue7L467OBVLYMjKP0ioaoApVbpj8_RNEFh8l73C_DUNh96KE1MjrZTAfGklJmM6E9MKNsvWRab',
@@ -38,6 +16,31 @@ const images = [
 ];
 
 export function FeaturesSection() {
+  const { t } = useLanguage();
+
+  const features: Feature[] = [
+    {
+      icon: Leaf,
+      title: t('featuresEcoTitle'),
+      description: t('featuresEcoDesc'),
+    },
+    {
+      icon: ShieldCheck,
+      title: t('featuresOrganicTitle'),
+      description: t('featuresOrganicDesc'),
+    },
+    {
+      icon: Users,
+      title: t('featuresFamilyTitle'),
+      description: t('featuresFamilyDesc'),
+    },
+    {
+      icon: Truck,
+      title: t('featuresFarm2TableTitle'),
+      description: t('featuresFarm2TableDesc'),
+    },
+  ];
+
   return (
     <section aria-label="Why Choose Uncle Voo's Farm – Eco-Friendly, Organic and Family Friendly" className="py-24 px-6 lg:px-12 max-w-7xl mx-auto">
       <div className="flex flex-col lg:flex-row gap-16 items-center">
@@ -53,7 +56,7 @@ export function FeaturesSection() {
           >
             <Leaf className="h-4 w-4" />
             <span className="font-semibold text-sm">
-              Why Uncle Voo's Farm
+              {t('featuresTag')}
             </span>
           </motion.div>
 
@@ -65,7 +68,7 @@ export function FeaturesSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-[var(--foreground)] text-3xl lg:text-5xl font-extrabold leading-tight mb-4"
           >
-            Reconnect with nature and enjoy the simple pleasures.
+            {t('featuresTitle')}
           </motion.h2>
 
           {/* Subtitle */}
@@ -76,9 +79,7 @@ export function FeaturesSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-gray-600 leading-relaxed mb-10 max-w-xl"
           >
-            Whether you're looking for a weekend escape, fresh ingredients for
-            your dinner, or a learning experience for your kids, Uncle Voo's Farm
-            offers a unique connection to the land.
+            {t('featuresSubtitle')}
           </motion.p>
 
           {/* 2x2 Feature grid */}

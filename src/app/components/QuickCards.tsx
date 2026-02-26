@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Bed, Apple, Users, ArrowRight } from 'lucide-react';
+import { useLanguage } from './LanguageContext';
 
 interface QuickCard {
   icon: React.ElementType;
@@ -9,34 +10,32 @@ interface QuickCard {
   href: string;
 }
 
-const cards: QuickCard[] = [
-  {
-    icon: Bed,
-    title: 'Cozy Stays',
-    description:
-      'Rustic cabins with modern amenities for the perfect countryside getaway.',
-    linkText: 'Check Availability',
-    href: '#stay',
-  },
-  {
-    icon: Apple,
-    title: 'Daily Harvest',
-    description:
-      'Visit our shop for fresh eggs, milk, and seasonal vegetables picked today.',
-    linkText: 'Browse Products',
-    href: '#shop',
-  },
-  {
-    icon: Users,
-    title: 'Farm Tours',
-    description:
-      'Explore our working farm with guided tours. Feed the animals, pick fresh fruit, and learn about sustainable farming.',
-    linkText: 'Book a Tour',
-    href: '#tours',
-  },
-];
-
 export function QuickCards() {
+  const { t } = useLanguage();
+
+  const cards: QuickCard[] = [
+    {
+      icon: Bed,
+      title: t('quickStayTitle'),
+      description: t('quickStayDesc'),
+      linkText: t('quickStayLink'),
+      href: '#stay',
+    },
+    {
+      icon: Apple,
+      title: t('quickHarvestTitle'),
+      description: t('quickHarvestDesc'),
+      linkText: t('quickHarvestLink'),
+      href: '#shop',
+    },
+    {
+      icon: Users,
+      title: t('quickToursTitle'),
+      description: t('quickToursDesc'),
+      linkText: t('quickToursLink'),
+      href: '#tours',
+    },
+  ];
   return (
     <section aria-label="Uncle Voo's Farm – Quick Links to Stay, Shop and Tours" className="max-w-7xl mx-auto px-6 lg:px-12 -mt-16 relative z-30">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

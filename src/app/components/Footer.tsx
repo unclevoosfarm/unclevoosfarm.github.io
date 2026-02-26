@@ -28,18 +28,18 @@ export function Footer() {
         {/* Quick nav links for crawlers */}
         <nav aria-label="Footer navigation">
           <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-500">
-            <li><a href="#home" className="hover:text-[var(--primary)] transition-colors">Home</a></li>
-            <li><a href="#stay" className="hover:text-[var(--primary)] transition-colors">Farm Stay</a></li>
-            <li><a href="#shop" className="hover:text-[var(--primary)] transition-colors">Harvest Shop</a></li>
-            <li><a href="#tours" className="hover:text-[var(--primary)] transition-colors">Farm Tours</a></li>
-            <li><a href="#reviews" className="hover:text-[var(--primary)] transition-colors">Reviews</a></li>
-            <li><a href="#contact" className="hover:text-[var(--primary)] transition-colors">Contact</a></li>
+            <li><a href="#home" className="hover:text-[var(--primary)] transition-colors">{t('footerHome')}</a></li>
+            <li><a href="#stay" className="hover:text-[var(--primary)] transition-colors">{t('footerNavStay')}</a></li>
+            <li><a href="#shop" className="hover:text-[var(--primary)] transition-colors">{t('footerNavShop')}</a></li>
+            <li><a href="#tours" className="hover:text-[var(--primary)] transition-colors">{t('footerNavTours')}</a></li>
+            <li><a href="#reviews" className="hover:text-[var(--primary)] transition-colors">{t('footerNavReviews')}</a></li>
+            <li><a href="#contact" className="hover:text-[var(--primary)] transition-colors">{t('footerNavContact')}</a></li>
           </ul>
         </nav>
 
         {/* Copyright */}
         <p className="text-gray-500 text-center text-sm">
-          &copy; <time dateTime="2026">2026</time> Uncle Voo's Farm. All rights reserved.
+          {t('footerCopyrightText')}
         </p>
 
         {/* Made with love */}
