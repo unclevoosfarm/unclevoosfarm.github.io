@@ -110,13 +110,13 @@ function StayDetailModal({ stay, language, onClose }: {
               </p>
 
               {/* Full amenities grid */}
-              <div className="grid grid-cols-2 gap-3 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-8">
                 {amenities.map((amenity) => {
                   const Icon = amenity.icon;
                   return (
                     <div
                       key={amenity.label}
-                      className="flex items-center gap-2 p-3 rounded-xl bg-[var(--cream)]/50 border border-[var(--cream)]"
+                      className="flex items-center gap-2 p-2.5 rounded-xl bg-[var(--cream)]/50 border border-[var(--cream)]"
                     >
                       <div className="h-8 w-8 rounded-lg bg-[var(--primary)]/10 text-[var(--primary)] flex items-center justify-center shrink-0">
                         <Icon className="h-4 w-4" />
@@ -300,18 +300,18 @@ function StaySingleCard({ stay, language, onImageClick }: {
           </p>
 
           {/* Amenities Grid */}
-          <div className="grid grid-cols-2 gap-3 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-8">
             {amenities.map((amenity) => {
               const Icon = amenity.icon;
               return (
                 <div
                   key={amenity.label}
-                  className="flex items-center gap-3 p-3 rounded-xl bg-[var(--cream)]/50 border border-[var(--cream)]"
+                  className="flex items-center gap-2 p-2.5 rounded-xl bg-[var(--cream)]/50 border border-[var(--cream)]"
                 >
-                  <div className="h-9 w-9 rounded-lg bg-[var(--primary)]/10 text-[var(--primary)] flex items-center justify-center shrink-0">
-                    <Icon className="h-4.5 w-4.5" />
+                  <div className="h-8 w-8 rounded-lg bg-[var(--primary)]/10 text-[var(--primary)] flex items-center justify-center shrink-0">
+                    <Icon className="h-4 w-4" />
                   </div>
-                  <span className="text-[var(--foreground)] text-sm font-medium">
+                  <span className="text-[var(--foreground)] text-xs font-medium leading-tight">
                     {amenity.label}
                   </span>
                 </div>
