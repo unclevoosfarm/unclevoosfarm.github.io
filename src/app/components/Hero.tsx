@@ -183,7 +183,7 @@ export function Hero() {
               <h1 className="mb-4 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
                 {loc(slide.headingLine1, language)}
                 <br />
-                <span className="text-[var(--primary)]">
+                <span className="text-[#A8D5A2] drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
                   {loc(slide.headingAccent, language)}
                 </span>
               </h1>
