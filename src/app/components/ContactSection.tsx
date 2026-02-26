@@ -262,6 +262,27 @@ export function ContactSection() {
             </div>
           </div>
         </motion.div>
+
+        {/* Map */}
+        {contactData.mapEmbedUrl && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 rounded-[32px] overflow-hidden shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1)] border border-gray-100"
+          >
+            <iframe
+              src={contactData.mapEmbedUrl}
+              title="Uncle Voo's Farm location on Google Maps"
+              width="100%"
+              height="360"
+              style={{ border: 0, display: 'block' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </motion.div>
+        )}
       </div>
     </section>
   );
