@@ -162,7 +162,7 @@ export function Hero() {
       ))}
 
       {/* ---- Slide content ---- */}
-      <div className="relative z-10 flex h-full items-center">
+      <div className="relative z-10 flex h-full items-center pb-28 md:pb-0">
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-12">
           <AnimatePresence mode="wait">
             <motion.div
