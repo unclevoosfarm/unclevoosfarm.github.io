@@ -103,8 +103,10 @@ export function ContactSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.6 }}
-          className="bg-white rounded-[40px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] border border-gray-100 overflow-hidden flex flex-col md:flex-row"
+          className="bg-white rounded-[40px] shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1),0px_8px_10px_-6px_rgba(0,0,0,0.1)] border border-gray-100 overflow-hidden flex flex-col"
         >
+          {/* Top row: form + contact info */}
+          <div className="flex flex-col md:flex-row">
           {/* Form Side */}
           <div className="flex-1 p-8 md:p-10">
             <h2 id="contact-heading" className="text-[var(--foreground)] text-3xl mb-6">{t('contactTitle')}</h2>
@@ -261,28 +263,32 @@ export function ContactSection() {
               ))}
             </div>
           </div>
-        </motion.div>
+          </div>
 
-        {/* Map */}
-        {contactData.mapEmbedUrl && (
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-6 rounded-[32px] overflow-hidden shadow-[0px_20px_25px_-5px_rgba(0,0,0,0.1)] border border-gray-100"
-          >
-            <iframe
-              src={contactData.mapEmbedUrl}
-              title="Uncle Voo's Farm location on Google Maps"
-              width="100%"
-              height="360"
-              style={{ border: 0, display: 'block' }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </motion.div>
-        )}
+          {/* Map — full-width bottom panel inside the card */}
+          {contactData.mapEmbedUrl && (
+            <div className="relative border-t border-gray-100">
+              {/* Label pill overlay */}
+              <div className="absolute top-3 left-4 z-10 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-[var(--olive-dark)] text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm border border-gray-100">
+                <svg className="w-3.5 h-3.5 text-[var(--primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Uncle Voo's Farm · Sandakan
+              </div>
+              <iframe
+                src={contactData.mapEmbedUrl}
+                title="Uncle Voo's Farm location on Google Maps"
+                width="100%"
+                height="280"
+                style={{ border: 0, display: 'block' }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          )}
+        </motion.div>
       </div>
     </section>
   );
