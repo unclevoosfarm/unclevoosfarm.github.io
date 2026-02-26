@@ -17,7 +17,7 @@ export function WhatsAppButton() {
   const href = `https://wa.me/${phone}?text=${encodeURIComponent("Hi Uncle Voo, I'd like to find out more about your farm!")}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <div className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center gap-3">
       {/* Tooltip */}
       <AnimatePresence>
         {hovered && (
