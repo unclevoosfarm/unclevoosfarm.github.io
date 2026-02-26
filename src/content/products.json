@@ -86,7 +86,7 @@
         "my": "Telur itik segar daripada itik lepas bebas kami. Kaya dan berkhasiat. Tanya kami untuk harga dan ketersediaan hari ini.",
         "zh": "来自我们放养鸭子的新鲜鸭蛋，营养丰富。请询问当日价格及供应情况。"
       },
-      "image": "https://images.unsplash.com/photo-1569127959161-2b1297b2d9a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "image": "/uploads/Duck-Eggs.jpg",
       "bgColor": "#FFFBEB",
       "category": {
         "en": "Farm Animals",
@@ -254,7 +254,7 @@
         "my": "Telur itik tawar segar dari itik lepas bebas kami. Sesuai untuk memasak dan membakar. Tanya kami untuk harga hari ini.",
         "zh": "来自我们放养鸭子的新鲜无盐鸭蛋，适合烹饪和烘焙。请询问当日价格。"
       },
-      "image": "/uploads/Duck-Eggs.jpg",
+      "image": "https://images.unsplash.com/photo-1577111064880-4601019411fe?q=80&w=1035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "bgColor": "#F0F9FF",
       "category": {
         "en": "Farm Produce",
@@ -302,7 +302,7 @@
         "my": "Daging itik segar ternakan ladang, semula jadi rendah lemak dan penuh rasa. Disediakan segar atas pesanan.",
         "zh": "新鲜农场饲养鸭肉，天然精瘦，风味十足，按订单新鲜处理。"
       },
-      "image": "https://images.unsplash.com/photo-1587593810167-a84920ea0781?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "image": "https://images.unsplash.com/photo-1716174964448-5e35f07fd8fd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "bgColor": "#FFF5F5",
       "category": {
         "en": "Farm Produce",
