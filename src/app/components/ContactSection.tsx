@@ -243,8 +243,24 @@ export function ContactSection() {
               </address>
             </div>
 
+            {/* Mini Map */}
+            {contactData.mapEmbedUrl && (
+              <div className="relative z-10 mt-8 rounded-2xl overflow-hidden opacity-90">
+                <iframe
+                  src={contactData.mapEmbedUrl}
+                  title="Uncle Voo's Farm location on Google Maps"
+                  width="100%"
+                  height="160"
+                  style={{ border: 0, display: 'block' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            )}
+
             {/* Social Links */}
-            <div className="flex gap-4 mt-12 relative z-10" aria-label="Follow us on social media">
+            <div className="flex gap-4 mt-6 relative z-10" aria-label="Follow us on social media">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
@@ -264,30 +280,6 @@ export function ContactSection() {
             </div>
           </div>
           </div>
-
-          {/* Map — full-width bottom panel inside the card */}
-          {contactData.mapEmbedUrl && (
-            <div className="relative border-t border-gray-100">
-              {/* Label pill overlay */}
-              <div className="absolute top-3 left-4 z-10 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm text-[var(--olive-dark)] text-xs font-semibold px-3 py-1.5 rounded-full shadow-sm border border-gray-100">
-                <svg className="w-3.5 h-3.5 text-[var(--primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                Uncle Voo's Farm · Sandakan
-              </div>
-              <iframe
-                src={contactData.mapEmbedUrl}
-                title="Uncle Voo's Farm location on Google Maps"
-                width="100%"
-                height="280"
-                style={{ border: 0, display: 'block' }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          )}
         </motion.div>
       </div>
     </section>
