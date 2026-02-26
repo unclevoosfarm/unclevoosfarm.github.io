@@ -8,8 +8,8 @@ import { analytics } from '@/app/lib/analytics';
 
 const languageOptions: { code: Language; label: string }[] = [
   { code: 'en', label: 'EN' },
-  { code: 'my', label: 'MY' },
-  { code: 'zh', label: 'ZH' },
+  { code: 'my', label: 'BM' },
+  { code: 'zh', label: '中文' },
 ];
 
 export function Header() {
