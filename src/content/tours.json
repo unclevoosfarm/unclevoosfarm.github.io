@@ -2,22 +2,50 @@
   "tours": [
     {
       "id": "farm-discovery-tour",
-      "title": { "en": "Farm Discovery Tour", "my": "Lawatan Penemuan Ladang", "zh": "农场探索之旅" },
+      "title": {
+        "en": "Farm Discovery Tour",
+        "my": "Lawatan Penemuan Ladang",
+        "zh": "农场探索之旅"
+      },
       "price": "",
-      "duration": { "en": "~2 hours", "my": "~2 jam", "zh": "约2小时" },
+      "duration": {
+        "en": "~2 hours",
+        "my": "~2 jam",
+        "zh": "约2小时"
+      },
       "description": {
         "en": "Step into Uncle Voo's living farm and discover the rhythms of rural life. Watch and interact with our friendly animals — goats, Muscovy ducks, rabbits, and more — then take a guided walk through lush tropical greenery, fruit trees, and vegetable plots. A refreshing, hands-on escape for the whole family.",
         "my": "Masuki ladang hidup Pak Voo dan temui irama kehidupan desa. Tonton dan berinteraksi dengan haiwan kami yang mesra — kambing, itik serati, arnab, dan lain-lain — kemudian ikuti jalan berpandu melalui kehijauan tropika yang subur, pokok buah-buahan, dan petak sayur-sayuran. Pengalaman menyegarkan dan praktikal untuk seluruh keluarga.",
         "zh": "踏入伍叔叔的生态农场，感受乡村生活的节奏。与我们友善的动物——山羊、番鸭、兔子等互动，然后在向导带领下漫步穿越郁郁葱葱的热带绿地、果树和菜圃。全家大小的清新亲身体验。"
       },
       "features": [
-        { "en": "Animal watching & interaction", "my": "Pemerhatian & interaksi haiwan", "zh": "观赏动物与互动" },
-        { "en": "Guided nature walk", "my": "Jalan alam semula jadi berpandu", "zh": "有向导的自然漫步" },
-        { "en": "Fruit tree & veggie garden tour", "my": "Lawatan pokok buah & taman sayur", "zh": "果树与菜园参观" },
-        { "en": "Family & kid-friendly", "my": "Sesuai untuk keluarga & kanak-kanak", "zh": "适合全家及儿童" },
-        { "en": "Photo opportunities", "my": "Peluang bergambar", "zh": "拍照机会" }
+        {
+          "en": "Animal watching & interaction",
+          "my": "Pemerhatian & interaksi haiwan",
+          "zh": "观赏动物与互动"
+        },
+        {
+          "en": "Guided nature walk",
+          "my": "Jalan alam semula jadi berpandu",
+          "zh": "有向导的自然漫步"
+        },
+        {
+          "en": "Fruit tree & veggie garden tour",
+          "my": "Lawatan pokok buah & taman sayur",
+          "zh": "果树与菜园参观"
+        },
+        {
+          "en": "Family & kid-friendly",
+          "my": "Sesuai untuk keluarga & kanak-kanak",
+          "zh": "适合全家及儿童"
+        },
+        {
+          "en": "Photo opportunities",
+          "my": "Peluang bergambar",
+          "zh": "拍照机会"
+        }
       ],
-      "image": "https://images.unsplash.com/photo-1500076656116-558758c991c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "image": "/uploads/125511481_134116475165362_523657449225268961_n.jpg",
       "badge": ""
     }
   ]
