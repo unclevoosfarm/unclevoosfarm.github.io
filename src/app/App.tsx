@@ -6,6 +6,7 @@ import { FeaturesSection } from './components/FeaturesSection';
 import { StayCards } from './components/StayCards';
 import { HarvestProducts } from './components/HarvestProducts';
 import { FarmTours } from './components/FarmTours';
+import { LocalSeoSection } from './components/LocalSeoSection';
 import { Testimonials } from './components/Testimonials';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -37,6 +38,9 @@ export default function App() {
 
           {/* Farm Tour Experiences */}
           <FarmTours />
+
+          {/* Sandakan Local SEO Content */}
+          <LocalSeoSection />
 
           {/* Guest Testimonials */}
           <Testimonials />
