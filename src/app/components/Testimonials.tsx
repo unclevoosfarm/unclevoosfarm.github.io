@@ -1,5 +1,6 @@
 import { useLanguage } from './LanguageContext';
-import { motion } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useState } from 'react';
 import { Star, StarHalf } from 'lucide-react';
 import testimonialsData from '@/content/testimonials.json';
 
@@ -9,8 +10,20 @@ const loc = <T extends Record<Lang, string>>(field: T, lang: string): string =>
 
 export function Testimonials() {
   const { t, language } = useLanguage();
-  const { rating, reviewCount, testimonials } = testimonialsData;
-  const featured = testimonials[0];
+  const { rating, testimonials } = testimonialsData;
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const hasMultiple = testimonials.length > 1;
+
+  useEffect(() => {
+    if (!hasMultiple || isPaused) return;
+    const timer = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    }, 7000);
+    return () => window.clearInterval(timer);
+  }, [hasMultiple, isPaused, testimonials.length]);
+
+  const active = testimonials[activeIndex] ?? testimonials[0];
 
   return (
     <section
@@ -47,13 +60,47 @@ export function Testimonials() {
           <div className="h-px md:h-16 md:w-px w-full bg-white/10" />
 
           {/* Right: Featured Quote */}
-          <div className="flex-1">
-            <p className="text-xl text-gray-200 italic leading-relaxed">
-              "{loc(featured.text, language)}"
-            </p>
-            <p className="text-sm text-gray-400 mt-4 font-semibold">
-              - {featured.name}, {loc(featured.role, language)}
-            </p>
+          <div
+            className="flex-1"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onFocusCapture={() => setIsPaused(true)}
+            onBlurCapture={() => setIsPaused(false)}
+          >
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active.id}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+              >
+                <p className="text-xl text-gray-200 italic leading-relaxed">
+                  "{loc(active.text, language)}"
+                </p>
+                <p className="text-sm text-gray-400 mt-4 font-semibold">
+                  - {active.name}, {loc(active.role, language)}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+
+            {hasMultiple && (
+              <div className="mt-6 flex items-center gap-2">
+                {testimonials.map((item, index) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    aria-label={`Show testimonial ${index + 1}`}
+                    aria-current={index === activeIndex}
+                    className={`h-2 rounded-full transition-all duration-300 ${index === activeIndex
+                        ? 'w-8 bg-[var(--cta)]'
+                        : 'w-2 bg-white/30 hover:bg-white/50'
+                      }`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         </motion.div>
       </div>

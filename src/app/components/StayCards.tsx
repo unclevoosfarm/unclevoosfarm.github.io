@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 type Lang = 'en' | 'my' | 'zh';
 const loc = <T extends Record<Lang, string>>(field: T, lang: string): string =>
   field[(lang as Lang)] ?? field.en;
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type MouseEvent, type ReactNode } from 'react';
 import stayData from '@/content/stay.json';
 import { analytics } from '@/app/lib/analytics';
 import { Lightbox } from './Lightbox';
@@ -20,11 +20,130 @@ import {
   MessageCircle,
   Home,
   X,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 
 const amenityIconMap = [BedDouble, Users, Wind, UtensilsCrossed, Flame, Droplets, WashingMachine];
 
 type Stay = (typeof stayData.stays)[number];
+type StayGalleryItem = string | { url?: string };
+
+function getStayImages(stay: Stay): string[] {
+  const gallery = (stay.gallery ?? []) as StayGalleryItem[];
+  const galleryUrls = gallery.map((item) => (typeof item === 'string' ? item : item.url ?? ''));
+  return Array.from(new Set([stay.image, ...galleryUrls].filter(Boolean)));
+}
+
+function StayImageCarousel({
+  images,
+  alt,
+  onImageClick,
+  className,
+  stopPropagation = false,
+  children,
+}: {
+  images: string[];
+  alt: string;
+  onImageClick: (url: string) => void;
+  className: string;
+  stopPropagation?: boolean;
+  children?: ReactNode;
+}) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const hasMultiple = images.length > 1;
+  const activeImage = images[activeIndex] ?? images[0];
+
+  useEffect(() => {
+    setActiveIndex(0);
+  }, [images.join('|')]);
+
+  useEffect(() => {
+    if (!hasMultiple || isPaused) return;
+    const timer = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % images.length);
+    }, 6000);
+    return () => window.clearInterval(timer);
+  }, [hasMultiple, isPaused, images.length]);
+
+  const showPrev = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setActiveIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  const showNext = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    setActiveIndex((prev) => (prev + 1) % images.length);
+  };
+
+  return (
+    <div
+      className={`${className} relative overflow-hidden group cursor-pointer`}
+      onClick={(e) => {
+        if (stopPropagation) e.stopPropagation();
+        onImageClick(activeImage);
+      }}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300">
+        <ZoomIn className="text-white w-10 h-10 drop-shadow-md" />
+      </div>
+
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={activeImage}
+          src={activeImage}
+          alt={alt}
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          initial={{ opacity: 0.65, scale: 1.04 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0.65, scale: 1.02 }}
+          transition={{ duration: 0.35, ease: 'easeOut' }}
+        />
+      </AnimatePresence>
+
+      {hasMultiple && (
+        <>
+          <button
+            type="button"
+            aria-label="Previous image"
+            onClick={showPrev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-30 h-8 w-8 rounded-full border border-white/20 bg-black/35 text-white flex items-center justify-center backdrop-blur-sm hover:bg-black/50"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            aria-label="Next image"
+            onClick={showNext}
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-30 h-8 w-8 rounded-full border border-white/20 bg-black/35 text-white flex items-center justify-center backdrop-blur-sm hover:bg-black/50"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+          <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5">
+            {images.map((img, index) => (
+              <button
+                key={img}
+                type="button"
+                aria-label={`Show image ${index + 1}`}
+                aria-current={index === activeIndex}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveIndex(index);
+                }}
+                className={`h-1.5 rounded-full transition-all ${index === activeIndex ? 'w-5 bg-white' : 'w-1.5 bg-white/50 hover:bg-white/70'}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+
+      {children}
+    </div>
+  );
+}
 
 /* ── Full detail modal ───────────────────────────────────────────── */
 function StayDetailModal({ stay, language, onClose }: {
@@ -38,6 +157,7 @@ function StayDetailModal({ stay, language, onClose }: {
     icon: amenityIconMap[i] || Home,
     label: loc(a, language),
   }));
+  const stayImages = getStayImages(stay);
 
   // Lock body scroll
   useEffect(() => {
@@ -78,27 +198,19 @@ function StayDetailModal({ stay, language, onClose }: {
 
           <div className="flex flex-col lg:flex-row">
             {/* Image Side */}
-            <div
+            <StayImageCarousel
+              images={stayImages}
+              alt={loc(stay.name, language)}
+              onImageClick={setLightboxImage}
               className="lg:w-1/2 h-[280px] lg:h-auto lg:min-h-[520px] relative overflow-hidden group cursor-pointer shrink-0"
-              onClick={() => setLightboxImage(stay.image)}
             >
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300">
-                <ZoomIn className="text-white w-10 h-10 drop-shadow-md" />
-              </div>
-              <motion.img
-                src={stay.image}
-                alt={loc(stay.name, language)}
-                className="w-full h-full object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.5 }}
-              />
               <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-3 shadow-lg z-20">
                 <div className="flex items-baseline gap-1">
                   <span className="text-[var(--primary)] text-2xl font-bold">{stay.price}</span>
                   <span className="text-gray-500 text-sm">{loc(stay.priceUnit, language)}</span>
                 </div>
               </div>
-            </div>
+            </StayImageCarousel>
 
             {/* Details Side */}
             <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
@@ -165,6 +277,7 @@ function StayGridCard({ stay, language, onOpenDetail, onImageClick }: {
   onImageClick: (url: string) => void;
 }) {
   const { t } = useLanguage();
+  const stayImages = getStayImages(stay);
   return (
     <motion.article
       layout
@@ -176,21 +289,13 @@ function StayGridCard({ stay, language, onOpenDetail, onImageClick }: {
       onClick={() => onOpenDetail(stay)}
     >
       {/* Image */}
-      <div
-        className="h-[256px] relative overflow-hidden group"
-        onClick={(e) => { e.stopPropagation(); onImageClick(stay.image); }}
+      <StayImageCarousel
+        images={stayImages}
+        alt={loc(stay.name, language)}
+        onImageClick={onImageClick}
+        className="h-[256px]"
+        stopPropagation
       >
-        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300">
-          <ZoomIn className="text-white w-8 h-8 drop-shadow-md" />
-        </div>
-        <motion.img
-          src={stay.image}
-          alt={loc(stay.name, language)}
-          className="w-full h-full object-cover"
-          loading="lazy"
-          whileHover={{ scale: 1.1 }}
-          transition={{ duration: 0.5 }}
-        />
         {/* Price badge */}
         <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-2 shadow-lg z-20">
           <div className="flex items-baseline gap-1">
@@ -198,7 +303,7 @@ function StayGridCard({ stay, language, onOpenDetail, onImageClick }: {
             <span className="text-gray-500 text-xs">{loc(stay.priceUnit, language)}</span>
           </div>
         </div>
-      </div>
+      </StayImageCarousel>
 
       {/* Content */}
       <div className="p-8 flex flex-col flex-1 bg-white">
@@ -251,6 +356,7 @@ function StaySingleCard({ stay, language, onImageClick }: {
   onImageClick: (url: string) => void;
 }) {
   const { t } = useLanguage();
+  const stayImages = getStayImages(stay);
   const amenities = stay.amenities.map((a, i) => ({
     icon: amenityIconMap[i] || Home,
     label: loc(a, language),
@@ -266,20 +372,12 @@ function StaySingleCard({ stay, language, onImageClick }: {
     >
       <div className="flex flex-col lg:flex-row">
         {/* Image Side */}
-        <div
+        <StayImageCarousel
+          images={stayImages}
+          alt={loc(stay.name, language)}
+          onImageClick={onImageClick}
           className="lg:w-1/2 h-[300px] lg:h-auto lg:min-h-[520px] relative overflow-hidden group cursor-pointer"
-          onClick={() => onImageClick(stay.image)}
         >
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors z-10 flex items-center justify-center opacity-0 group-hover:opacity-100 duration-300">
-            <ZoomIn className="text-white w-10 h-10 drop-shadow-md" />
-          </div>
-          <motion.img
-            src={stay.image}
-            alt={loc(stay.name, language)}
-            className="w-full h-full object-cover"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.5 }}
-          />
           {/* Price Badge */}
           <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm rounded-2xl px-5 py-3 shadow-lg z-20">
             <div className="flex items-baseline gap-1">
@@ -287,7 +385,7 @@ function StaySingleCard({ stay, language, onImageClick }: {
               <span className="text-gray-500 text-sm">{loc(stay.priceUnit, language)}</span>
             </div>
           </div>
-        </div>
+        </StayImageCarousel>
 
         {/* Details Side */}
         <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">

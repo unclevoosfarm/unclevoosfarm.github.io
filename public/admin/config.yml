@@ -272,8 +272,57 @@ collections:
                 widget: object
                 fields:
                   - { name: en, label: "English", widget: string }
+                   - { name: my, label: "Malay (BM)", widget: string }
+                   - { name: zh, label: "Chinese (中文)", widget: string }
+
+  # ── FAQ ────────────────────────────────────────────────────────────
+  - name: faq
+    label: FAQ
+    files:
+      - name: faq_content
+        label: FAQ Section
+        file: src/content/faq.json
+        fields:
+          - name: eyebrow
+            label: Eyebrow Label
+            widget: object
+            fields:
+              - { name: en, label: "English", widget: string }
+              - { name: my, label: "Malay (BM)", widget: string }
+              - { name: zh, label: "Chinese (中文)", widget: string }
+          - name: title
+            label: Section Title
+            widget: object
+            fields:
+              - { name: en, label: "English", widget: string }
+              - { name: my, label: "Malay (BM)", widget: string }
+              - { name: zh, label: "Chinese (中文)", widget: string }
+          - name: subtitle
+            label: Section Subtitle
+            widget: object
+            fields:
+              - { name: en, label: "English", widget: text }
+              - { name: my, label: "Malay (BM)", widget: text }
+              - { name: zh, label: "Chinese (中文)", widget: text }
+          - name: faqs
+            label: FAQ Items
+            widget: list
+            fields:
+              - { name: id, label: ID (slug), widget: string }
+              - name: question
+                label: Question
+                widget: object
+                fields:
+                  - { name: en, label: "English", widget: string }
                   - { name: my, label: "Malay (BM)", widget: string }
                   - { name: zh, label: "Chinese (中文)", widget: string }
+              - name: answer
+                label: Answer
+                widget: object
+                fields:
+                  - { name: en, label: "English", widget: text }
+                  - { name: my, label: "Malay (BM)", widget: text }
+                  - { name: zh, label: "Chinese (中文)", widget: text }
 
   # ── Contact ────────────────────────────────────────────────────────
   - name: contact

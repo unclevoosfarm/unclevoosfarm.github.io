@@ -1,0 +1,71 @@
+{
+  "eyebrow": {
+    "en": "Information",
+    "my": "Maklumat",
+    "zh": "信息"
+  },
+  "title": {
+    "en": "Frequently Asked Questions",
+    "my": "Soalan Lazim",
+    "zh": "常见问题"
+  },
+  "subtitle": {
+    "en": "Find answers to common questions about farm stay bookings, tours, fresh produce, and your visit to Uncle Voo's Farm in Sandakan, Sabah.",
+    "my": "Dapatkan jawapan pantas tentang tempahan penginapan ladang, lawatan ladang, hasil segar, dan kunjungan anda ke Uncle Voo's Farm di Sandakan, Sabah.",
+    "zh": "这里整理了关于山打根 Uncle Voo's Farm 农场住宿、导览活动、新鲜农产品与到访安排的常见问题。"
+  },
+  "faqs": [
+    {
+      "id": "book-farm-stay",
+      "question": {
+        "en": "How do I book a farm stay in Sandakan?",
+        "my": "Bagaimana saya boleh menempah penginapan ladang di Sandakan?",
+        "zh": "如何预订山打根农场住宿？"
+      },
+      "answer": {
+        "en": "You can book directly by contacting Uncle Voo's Farm via WhatsApp. Share your preferred date, guest count, and any special requests to confirm availability.",
+        "my": "Anda boleh tempah terus melalui WhatsApp Uncle Voo's Farm. Nyatakan tarikh, jumlah tetamu, dan keperluan khas untuk semakan ketersediaan.",
+        "zh": "可通过 WhatsApp 直接联系 Uncle Voo's Farm 预订，并提供入住日期、人数及特别需求以确认房态。"
+      }
+    },
+    {
+      "id": "what-to-bring-tours",
+      "question": {
+        "en": "What should I bring for the farm tours?",
+        "my": "Apa yang perlu dibawa untuk lawatan ladang?",
+        "zh": "参加农场导览需要带什么？"
+      },
+      "answer": {
+        "en": "Wear comfortable clothes, covered shoes, and bring drinking water. For daytime tours in Sandakan, we also recommend a hat, sunscreen, and mosquito repellent.",
+        "my": "Pakai pakaian yang selesa, kasut bertutup, dan bawa air minuman. Untuk lawatan siang di Sandakan, bawa topi, pelindung matahari, dan penghalau nyamuk.",
+        "zh": "建议穿着轻便衣物和包脚鞋，并携带饮用水。白天到访山打根时，建议准备帽子、防晒与防蚊用品。"
+      }
+    },
+    {
+      "id": "buy-fresh-produce",
+      "question": {
+        "en": "Is fresh produce available for purchase?",
+        "my": "Adakah hasil ladang segar dijual?",
+        "zh": "可以购买新鲜农产品吗？"
+      },
+      "answer": {
+        "en": "Yes. Depending on season and stock, you can inquire about duck eggs, kampung chicken eggs, ducks, goats, vegetables, and local fruits at the farm.",
+        "my": "Ya. Bergantung musim dan stok, anda boleh bertanya tentang telur itik, telur ayam kampung, itik, kambing, sayur, dan buah tempatan.",
+        "zh": "可以。视季节与库存而定，可咨询鸭蛋、甘榜鸡蛋、鸭只、山羊、蔬菜和本地水果等。"
+      }
+    },
+    {
+      "id": "visiting-hours",
+      "question": {
+        "en": "What are your visiting hours?",
+        "my": "Apakah waktu lawatan?",
+        "zh": "开放参观时间是什么时候？"
+      },
+      "answer": {
+        "en": "General visiting hours are daily from 9:00 AM to 4:00 PM. Please contact us before visiting so we can guide you on the best time slot for farm tours or stay check-in.",
+        "my": "Waktu lawatan umum ialah setiap hari 9:00 pagi hingga 4:00 petang. Sila hubungi kami dahulu untuk cadangan slot lawatan atau daftar masuk penginapan.",
+        "zh": "一般参观时间为每天上午 9:00 至下午 4:00。建议先联系确认最合适的导览或入住时段。"
+      }
+    }
+  ]
+}
