@@ -1,9 +1,21 @@
 {
-  "siteName": { "en": "Uncle Voo's Farm", "my": "Ladang Pak Voo", "zh": "伍叔叔农场" },
-  "tagline": { "en": "100% Organic & Family Owned", "my": "100% Organik & Milik Keluarga", "zh": "100% 有机 & 家族经营" },
+  "siteName": {
+    "en": "Uncle Voo's Farm",
+    "my": "Ladang Pak Voo",
+    "zh": "伍叔叔农场"
+  },
+  "tagline": {
+    "en": "100% Organic & Family Owned",
+    "my": "100% Organik & Milik Keluarga",
+    "zh": "100% 有机 & 家族经营"
+  },
   "bookingWhatsApp": "https://wa.me/60123456789?text=Hi%20Uncle%20Voo%2C%20I%20would%20like%20to%20book%20a%20stay!",
   "shopWhatsApp": "https://wa.me/60123456789?text=Hi%20Uncle%20Voo%2C%20I%20would%20like%20to%20order%20some%20produce!",
   "tourWhatsApp": "https://wa.me/60123456789?text=Hi%20Uncle%20Voo%2C%20I%20would%20like%20to%20book%20a%20farm%20tour!",
-  "shopEmail": "shop@unclevoofarm.com",
-  "footerCopyright": { "en": "2026 Uncle Voo's Farm. All rights reserved.", "my": "2026 Ladang Pak Voo. Hak cipta terpelihara.", "zh": "2026 伍叔叔农场。版权所有。" }
+  "shopEmail": "unclevoosfarm@proton.me",
+  "footerCopyright": {
+    "en": "2026 Uncle Voo's Farm. All rights reserved.",
+    "my": "2026 Ladang Pak Voo. Hak cipta terpelihara.",
+    "zh": "2026 伍叔叔农场。版权所有。"
+  }
 }
