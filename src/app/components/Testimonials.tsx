@@ -24,6 +24,9 @@ export function Testimonials() {
   }, [hasMultiple, isPaused, testimonials.length]);
 
   const active = testimonials[activeIndex] ?? testimonials[0];
+  const activeRating = Number(active.rating ?? 5);
+  const clampedRating = Number.isFinite(activeRating) ? Math.min(5, Math.max(1, activeRating)) : 5;
+  const activeStars = Math.round(clampedRating);
 
   return (
     <section
@@ -78,6 +81,17 @@ export function Testimonials() {
                 <p className="text-xl text-gray-200 italic leading-relaxed">
                   "{loc(active.text, language)}"
                 </p>
+                <div className="mt-4 flex items-center gap-2">
+                  <div className="flex items-center gap-0.5" aria-label={`Rated ${clampedRating} out of 5`}>
+                    {Array.from({ length: 5 }).map((_, idx) => (
+                      <Star
+                        key={idx}
+                        className={`h-4 w-4 ${idx < activeStars ? 'text-[var(--cta)] fill-[var(--cta)]' : 'text-white/30'}`}
+                      />
+                    ))}
+                  </div>
+                  <span className="text-sm text-gray-300 font-medium">{clampedRating.toFixed(1)}/5</span>
+                </div>
                 <p className="text-sm text-gray-400 mt-4 font-semibold">
                   - {active.name}, {loc(active.role, language)}
                 </p>
