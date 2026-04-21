@@ -1,27 +1,51 @@
 {
-  "rating": "4.9",
+  "rating": "4.95",
   "reviewCount": "200+",
   "testimonials": [
     {
       "id": "sarah-jenkins",
-      "text": { "en": "Absolutely magical! The kids loved feeding the goats and the cabin was so cozy. We will definitely be back next summer.", "my": "Sungguh ajaib! Kanak-kanak sangat suka memberi makan kambing dan kabin sangat selesa. Kami pasti akan kembali musim panas depan.", "zh": "太神奇了！孩子们喜欢喂山羊，小屋非常温馨。我们明年夏天一定会再来。" },
+      "text": {
+        "en": "Absolutely magical! The kids loved feeding the goats and the cabin was so cozy. We will definitely be back next summer.",
+        "my": "Sungguh ajaib! Kanak-kanak sangat suka memberi makan kambing dan kabin sangat selesa. Kami pasti akan kembali musim panas depan.",
+        "zh": "太神奇了！孩子们喜欢喂山羊，小屋非常温馨。我们明年夏天一定会再来。"
+      },
       "name": "Sarah Jenkins",
       "rating": 5,
-      "role": { "en": "Family Trip", "my": "Percutian Keluarga", "zh": "家庭旅行" }
+      "role": {
+        "en": "Family Trip",
+        "my": "Percutian Keluarga",
+        "zh": "家庭旅行"
+      }
     },
     {
       "id": "michael-tan",
-      "text": { "en": "The freshest produce I've ever tasted. I bought a box of vegetables to take home and they were delicious. Highly recommend!", "my": "Hasil pertanian paling segar yang pernah saya rasa. Saya membeli sekotak sayur-sayuran untuk dibawa pulang dan ia sangat lazat. Sangat disyorkan!", "zh": "我吃过最新鲜的农产品。我买了一箱蔬菜带回家，非常美味。强烈推荐！" },
+      "text": {
+        "en": "The freshest produce I've ever tasted. I bought a box of vegetables to take home and they were delicious. Highly recommend!",
+        "my": "Hasil pertanian paling segar yang pernah saya rasa. Saya membeli sekotak sayur-sayuran untuk dibawa pulang dan ia sangat lazat. Sangat disyorkan!",
+        "zh": "我吃过最新鲜的农产品。我买了一箱蔬菜带回家，非常美味。强烈推荐！"
+      },
       "name": "Michael Tan",
       "rating": 4.8,
-      "role": { "en": "Day Visitor", "my": "Pelawat Harian", "zh": "日间访客" }
+      "role": {
+        "en": "Day Visitor",
+        "my": "Pelawat Harian",
+        "zh": "日间访客"
+      }
     },
     {
       "id": "jessica-lee",
-      "text": { "en": "A perfect escape from the city. The wifi was surprisingly good, so I could work a bit while enjoying the nature views.", "my": "Pelarian sempurna dari bandar. Wifi sangat baik secara mengejutkan, jadi saya boleh bekerja sedikit sambil menikmati pemandangan alam semula jadi.", "zh": "完美的城市逃离。WiFi出乎意料地好，所以我可以一边工作一边欣赏自然景色。" },
+      "text": {
+        "en": "A perfect escape from the city. The wifi was surprisingly good, so I could work a bit while enjoying the nature views.",
+        "my": "Pelarian sempurna dari bandar. Wifi sangat baik secara mengejutkan, jadi saya boleh bekerja sedikit sambil menikmati pemandangan alam semula jadi.",
+        "zh": "完美的城市逃离。WiFi出乎意料地好，所以我可以一边工作一边欣赏自然景色。"
+      },
       "name": "Jessica Lee",
       "rating": 4.9,
-      "role": { "en": "Digital Nomad", "my": "Nomad Digital", "zh": "数字游民" }
+      "role": {
+        "en": "Digital Nomad",
+        "my": "Nomad Digital",
+        "zh": "数字游民"
+      }
     }
   ]
 }
