@@ -154,7 +154,7 @@ export function Hero() {
             alt={s.imageAlt}
             className="h-full w-full object-cover"
             loading={i === 0 ? 'eager' : 'lazy'}
-            fetchPriority={i === 0 ? 'high' : 'low'}
+            fetchpriority={i === 0 ? 'high' : 'low'}
           />
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent" />

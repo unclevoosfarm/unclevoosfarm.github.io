@@ -73,8 +73,8 @@ const ProductCard = forwardRef<HTMLElement, ProductCardProps>(({ name, price, un
         {badge && (
           <div
             className={`absolute top-4 right-4 flex items-center gap-1 px-3 py-1 rounded-full shadow-sm z-20 ${badge.type === 'season'
-                ? 'bg-white text-gray-700'
-                : 'bg-[var(--primary)] text-white'
+              ? 'bg-white text-gray-700'
+              : 'bg-[var(--primary)] text-white'
               }`}
           >
             {badge.type === 'season' ? (
@@ -180,8 +180,8 @@ export function HarvestProducts() {
             <button
               onClick={() => { analytics.productFilter('all'); setActiveCategory(null); }}
               className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === null
-                  ? 'bg-[var(--primary)] text-white shadow-md'
-                  : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
+                ? 'bg-[var(--primary)] text-white shadow-md'
+                : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
                 }`}
             >
               {t('harvestFilterAll')}
@@ -193,8 +193,8 @@ export function HarvestProducts() {
                 key={key}
                 onClick={() => { analytics.productFilter(key); setActiveCategory(key); }}
                 className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${activeCategory === key
-                    ? 'bg-[var(--primary)] text-white shadow-md'
-                    : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
+                  ? 'bg-[var(--primary)] text-white shadow-md'
+                  : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
                   }`}
               >
                 {loc(labelObj, language)}
